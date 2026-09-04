@@ -58,13 +58,16 @@
     display:block; font-weight:500; font-size:0.7rem; color:var(--text-soft); letter-spacing:.04em;
   }
   nav.mainnav{
-    display:flex; flex-wrap:wrap; gap:4px;
+    display:flex; flex-direction:column; gap:4px;
+  }
+  nav.mainnav .navrow{
+    display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end;
   }
   nav.mainnav button{
     background:none; border:none; cursor:pointer;
     font-size:0.86rem; font-weight:600; color:var(--navy);
     padding:8px 12px; border-radius:8px;
-    font-family:inherit;
+    font-family:inherit; white-space:nowrap;
   }
   nav.mainnav button:hover{ background:var(--teal-light); }
   nav.mainnav button.active{ background:var(--navy); color:var(--white); }
@@ -198,15 +201,19 @@
       </div>
     </div>
     <nav class="mainnav" id="mainnav">
-      <button data-page="home" onclick="showPage('home')">Home</button>
-      <button data-page="intro" onclick="showPage('intro')">Foundations</button>
-      <button data-page="underachieve" onclick="showPage('underachieve')">Why Underachieve</button>
-      <button data-page="behaviour" onclick="showPage('behaviour')">Behaviour</button>
-      <button data-page="sel" onclick="showPage('sel')">Social-Emotional</button>
-      <button data-page="multiexceptional" onclick="showPage('multiexceptional')">Multi-Exceptional</button>
-      <button data-page="tasks" onclick="showPage('tasks')">Enrichment Tasks</button>
-      <button data-page="links" onclick="showPage('links')">Curated Links</button>
-      <button data-page="helpstudent" onclick="showPage('helpstudent')">Help Students Learn</button>
+      <div class="navrow">
+        <button data-page="home" onclick="showPage('home')">Home</button>
+        <button data-page="intro" onclick="showPage('intro')">Foundations</button>
+        <button data-page="underachieve" onclick="showPage('underachieve')">Why Underachieve</button>
+        <button data-page="behaviour" onclick="showPage('behaviour')">Behaviour</button>
+        <button data-page="sel" onclick="showPage('sel')">Social-Emotional</button>
+        <button data-page="multiexceptional" onclick="showPage('multiexceptional')">Multi-Exceptional</button>
+      </div>
+      <div class="navrow">
+        <button data-page="tasks" onclick="showPage('tasks')">Enrichment Tasks</button>
+        <button data-page="links" onclick="showPage('links')">Curated Links</button>
+        <button data-page="helpstudent" onclick="showPage('helpstudent')">Help Students Learn</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -441,6 +448,9 @@
         behaviour &mdash; for many of these students it's the missing piece that reconnects effort
         with purpose, and the behaviour settles as a side effect of that, not a precondition
         for it.</p>
+      <p style="margin-top:10px;">Not sure what a student's passion area is? The
+        <a href="https://aerwin-sgcs.github.io/2026_SPARK_PassionSurvey/" target="_blank" rel="noopener">SPARK Passion Survey</a>
+        is a quick tool that helps students identify their passion area.</p>
     </div>
   </div>
 
