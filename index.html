@@ -93,6 +93,20 @@
     padding:22px 24px; box-shadow:var(--shadow);
   }
 
+  /* ---------- Reference summaries ---------- */
+  details.ref-summary{ margin:4px 0 2px; }
+  details.ref-summary summary{
+    cursor:pointer; color:var(--teal); font-weight:600; font-size:0.85em;
+    list-style:none; display:inline-block;
+  }
+  details.ref-summary summary::-webkit-details-marker{ display:none; }
+  details.ref-summary summary::before{ content:"Read summary \25B8"; }
+  details.ref-summary[open] summary::before{ content:"Hide summary \25BE"; }
+  details.ref-summary summary *{ display:none; }
+  details.ref-summary p{
+    margin:6px 0 0; font-size:0.85em; color:var(--text-soft); max-width:640px;
+  }
+
   /* ---------- Home / two doors ---------- */
   .hero{ text-align:center; padding:28px 0 8px; }
   .hero h1{ font-size:2.4rem; }
@@ -403,10 +417,15 @@
       a solved problem.</p>
     <p style="margin-bottom:0;">Sources:</p>
     <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
-      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11402643/" target="_blank" rel="noopener">Unpacking the underachievement of gifted students: a systematic review of internal and external factors (2024)</a></li>
-      <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0016986220908601" target="_blank" rel="noopener">The effectiveness of current interventions to reverse the underachievement of gifted students (2020)</a></li>
-      <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1747938X18301362" target="_blank" rel="noopener">Why do we know so little about the factors associated with gifted underachievement? (2018)</a></li>
-      <li><a href="https://journals.sagepub.com/doi/10.1177/00169862261448147" target="_blank" rel="noopener">Gifted underachievement redefined and reconceptualized (2026)</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11402643/" target="_blank" rel="noopener">Unpacking the underachievement of gifted students: a systematic review of internal and external factors (2024)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>This systematic review by Raoof and colleagues (Heliyon, 2024) analysed 33 peer-reviewed studies from 2010 to 2024, drawn from Google Scholar, ERIC and ScienceDirect, to map what actually drives underachievement in gifted students. It sorts causes into two clusters. Internal factors include motivational issues such as low self-efficacy and poor goal valuation, emotional-social challenges like perfectionism, anxiety and low resilience, and demographic variables such as gender, age and grade level. External factors include family dynamics and parental involvement, peer relationships and social acceptance, classroom environment and teacher attitudes, and broader socioeconomic and cultural conditions. The review&rsquo;s central conclusion is that no single lever fixes underachievement: internal and external factors interact and compound each other, so effective responses need to be holistic, addressing psychological factors and the surrounding environment together, rather than treating underachievement as purely an academic or purely an emotional problem that can be solved in isolation from the rest of a student&rsquo;s life.</p></details>
+      </li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9543815/" target="_blank" rel="noopener">The identification of gifted underachievement: Validity evidence for the commonly used methods (2022)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Jackson and Jung (British Journal of Educational Psychology, 2022) tackle a foundational question head-on: is gifted underachievement a real, identifiable phenomenon, or just an inconsistent label applied by whoever happens to be looking? Grounding their work in the field&rsquo;s standard definition &mdash; a severe discrepancy between a student&rsquo;s expected and actual achievement, not attributable to disability &mdash; they draw on prevalence research showing the pattern is genuinely common: 10&ndash;20% of gifted students show significant underachievement, and some studies put it above 50% depending on how it&rsquo;s measured. Using archival data from over 2,599 students across multiple assessment instruments (OLSAT, HSC, School Certificate, NAPLAN and school assessments), they compared five commonly used identification methods against each other using convergence measures and latent class analysis. The key finding is that these methods do not agree with each other &mdash; the simple difference method (comparing standardised expected versus actual achievement) showed the strongest validity, while teacher nomination performed worst. For teachers, the practical message is twofold: underachievement is a genuine, measurable pattern with real socio-emotional correlates like self-concept and anxiety, not just a subjective label &mdash; but which students get identified as underachieving depends heavily on which method is used to look for them.</p></details>
+      </li>
+      <li><a href="https://studentjournals.anu.edu.au/index.php/aurj/article/view/13" target="_blank" rel="noopener">Gifted Underachievement: The Causes of Gifted Underachievement, and Interventions to Reverse this Pattern (2016)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Wu (ANU Undergraduate Research Journal, 2016) opens with a striking Victorian government inquiry finding: up to 50% of gifted students do not perform at the level they are actually capable of. The paper draws a clear distinction between simply possessing a gift and actually developing it into achievement, arguing that turning one into the other depends on specific intrapersonal and environmental conditions being in place &mdash; it doesn&rsquo;t happen automatically just because a student is capable. Combining interviews with a review of the existing literature, Wu identifies motivation, peer influence and self-esteem as the critical catalysts that determine whether a gifted student&rsquo;s potential actually converts into results. The paper goes on to evaluate the school-based interventions already in use against these factors, and recommends practical strategies for shaping a learning environment that nurtures motivation, healthy peer dynamics and self-esteem together, rather than addressing academic performance in isolation from the social and emotional conditions that make it possible.</p></details>
+      </li>
     </ul>
   </div>
 
@@ -461,16 +480,49 @@
       remains the foundational text on this issue. More recent research has continued to explore
       the overlap and distinction between giftedness and conditions like ADHD.</p>
     <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
-      <li><a href="https://www.jeffcogifted.org/uploads/1/0/8/9/108938165/misdiagnosis_and_diagnosis_of_gt_by__james_t_webb.pdf" target="_blank" rel="noopener">Misdiagnosis and Dual Diagnosis of Gifted Children &mdash; James T. Webb</a></li>
-      <li><a href="https://www.sciencedirect.com/science/article/pii/S016028962300017X" target="_blank" rel="noopener">Cognitive characteristics of intellectually gifted children with a diagnosis of ADHD (2023)</a></li>
+      <li><a href="https://www.jeffcogifted.org/uploads/1/0/8/9/108938165/misdiagnosis_and_diagnosis_of_gt_by__james_t_webb.pdf" target="_blank" rel="noopener">Misdiagnosis and Dual Diagnosis of Gifted Children &mdash; James T. Webb</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>James T. Webb&rsquo;s foundational text argues that gifted children and adults are frequently
+          misdiagnosed because clinicians mistake traits that are simply part of giftedness for
+          symptoms of a disorder. Intensity, heightened sensory awareness and restlessness &mdash; what one
+          parent quoted in the book calls &ldquo;anything worth doing is worth doing to excess&rdquo; &mdash;
+          combined with an intense drive to question and understand, can look like ADHD, especially when paired
+          with impatience and high motor activity, even though these students typically show sharp,
+          sustained focus once genuinely engaged. Idealism and a habit of questioning authority can be
+          read as Oppositional Defiant Disorder, particularly when a student is criticised for the very
+          traits that make them gifted in the first place. Webb also documents gifted children
+          misdiagnosed with Asperger&rsquo;s, Bipolar Disorder and OCD based on traits like aloofness,
+          emotional intensity and perfectionism. Crucially, he also covers genuine dual diagnoses &mdash;
+          gifted children who do have coexisting learning disabilities, sleep disorders or other
+          conditions that giftedness can mask rather than cause.</p></details>
+      </li>
+      <li><a href="https://arxiv.org/abs/2302.10521" target="_blank" rel="noopener">Cognitive characteristics of intellectually gifted children with a diagnosis of ADHD (2023) &mdash; free preprint</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Cornoldi, Giofr&egrave; and Toffalini (Intelligence, 2023) studied 82 twice-exceptional children who
+          carried both high intellectual ability and a formal ADHD diagnosis &mdash; representing 8.8% of the
+          ADHD sample studied, roughly double the rate of giftedness found in the general population.
+          These children scored very highly on the General Ability Index of the WISC-IV (125 or above),
+          but despite that strong overall ability, they showed consistently lower scores on working
+          memory and processing speed &mdash; a cognitive profile that resembled gifted children with Specific
+          Learning Disorders more closely than it resembled typically developing gifted children.
+          Importantly, the study&rsquo;s evidence suggested these ADHD diagnoses were generally valid rather
+          than a case of giftedness being mistaken for ADHD: the children displayed the executive
+          function and processing patterns associated with genuine ADHD, layered on top of exceptional
+          reasoning ability. The takeaway for teachers is that giftedness and ADHD can and do co-occur
+          at meaningfully higher rates than chance, producing a distinctive profile that combines real
+          strength with real, separate challenge.</p></details>
+      </li>
       <li><a href="https://doi.org/10.3390/educsci16071134" target="_blank" rel="noopener">Reframing Gifted Education: From Sorting Students to Cultivating Classroom-Based Opportunities &mdash; Del Siegle &amp; Talbot S. Hook (2026)</a>
-        <p style="margin:4px 0 0; font-size:0.9em; color:var(--text-soft);">Argues that gifted education is hampered by identification systems that remain
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Argues that gifted education is hampered by identification systems that remain
           inconsistent, inequitable, and poorly connected to actual services, and that the field should shift
           from asking &ldquo;who is gifted?&rdquo; to &ldquo;how do we create conditions that let talent develop?&rdquo;
           Proposes a Three Legs of Talent Development model &mdash; advanced content access, intellectually
           stimulating instruction (depth, complexity, inquiry, risk-taking), and interest-based authentic
           learning &mdash; delivered mainly through the general classroom rather than segregated pull-out
-          programs, making opportunity-rich teaching the primary way to grow talent in all students.</p>
+          programs, making opportunity-rich teaching the primary way to grow talent in all students. The
+          field is currently split between the Gifted Child Paradigm and the Talent Development Paradigm,
+          which the authors argue prevents coherent policy and practice; identification systems produce
+          dramatically different groups of students depending on the measures, norms, cutoffs and decision
+          rules used, and persistent inequities across demographic groups are structural rather than
+          something better testing alone can fix.</p></details>
       </li>
     </ul>
   </div>
@@ -521,8 +573,30 @@
 
   <p class="lede" style="font-size:0.85rem; margin-bottom:4px;">Sources:</p>
   <ul style="margin:0 0 14px; padding-left:20px; color:#2b3648; font-size:0.85rem;">
-    <li><a href="https://doi.org/10.3390/educsci16071134" target="_blank" rel="noopener">Reframing Gifted Education &mdash; Siegle &amp; Hook (2026)</a></li>
-    <li><a href="https://doi.org/10.3390/educsci11100615" target="_blank" rel="noopener">Enrichment and Gifted Education Pedagogy to Develop Talents, Gifts, and Creative Productivity &mdash; Reis, Renzulli &amp; Renzulli (2021)</a></li>
+    <li><a href="https://doi.org/10.3390/educsci16071134" target="_blank" rel="noopener">Reframing Gifted Education &mdash; Siegle &amp; Hook (2026)</a>
+      <details class="ref-summary"><summary><span>Read summary</span></summary><p>Argues that gifted education is hampered by identification systems that remain
+        inconsistent, inequitable, and poorly connected to actual services, and that the field should shift
+        from asking &ldquo;who is gifted?&rdquo; to &ldquo;how do we create conditions that let talent develop?&rdquo;
+        Proposes the Three Legs of Talent Development model used to structure this section &mdash; advanced
+        content access, intellectually stimulating instruction, and interest-based authentic learning &mdash;
+        delivered mainly through the general classroom rather than segregated pull-out programs. The field is
+        currently split between the Gifted Child Paradigm and the Talent Development Paradigm, which the
+        authors argue prevents coherent policy and practice, and they contend identification systems produce
+        dramatically different groups of students depending on the measures, norms, cutoffs and decision
+        rules used, with persistent inequities across demographic groups that better testing alone cannot fix.</p></details>
+    </li>
+    <li><a href="https://doi.org/10.3390/educsci11100615" target="_blank" rel="noopener">Enrichment and Gifted Education Pedagogy to Develop Talents, Gifts, and Creative Productivity &mdash; Reis, Renzulli &amp; Renzulli (2021)</a>
+      <details class="ref-summary"><summary><span>Read summary</span></summary><p>Reis, Renzulli and Renzulli (Education Sciences, 2021) draw on decades of research behind the
+        Enrichment Triad Model to give practical shape to each of the three legs above. On advanced content,
+        they cite research supporting the elimination of 50&ndash;75% of already-mastered curriculum through
+        compacting, substituting more challenging material in its place. On intellectually stimulating
+        instruction, they describe Kaplan&rsquo;s depth-and-complexity framework, which has students dig into a
+        topic&rsquo;s details, patterns, trends, unanswered questions, ethics and big ideas rather than stopping
+        at surface facts. On interest-based learning, they describe Type III Enrichment, where a student takes
+        on the role of a first-hand inquirer producing authentic work for a real audience rather than a
+        consumer of pre-packaged content, and report longitudinal findings that students completing this kind
+        of project carried matching interests and career aspirations through college and graduate school.</p></details>
+    </li>
   </ul>
 
   <a class="crosslink" href="#" onclick="showPage('tasks'); return false;">Explore enrichment tasks that re-engage &rarr;</a>
@@ -563,9 +637,51 @@
       understanding gifted emotional intensity, and continues to be studied and applied in gifted
       education research.</p>
     <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
-      <li><a href="https://www.researchgate.net/publication/388076057_Overexcitabilities_in_Young_Highly_to_Profoundly_Gifted_Learners" target="_blank" rel="noopener">Overexcitabilities in Young Highly to Profoundly Gifted Learners</a></li>
-      <li><a href="https://giftedconsortium.com/wp-content/uploads/2024/08/education.pdf" target="_blank" rel="noopener">Wood et al., overexcitabilities &amp; gifted learners (2024)</a></li>
-      <li><a href="https://tasgifted.com/explain-overexcitabilities-in-gifted-students-as-described-by-dabrowski/" target="_blank" rel="noopener">Tasmanian Association for the Gifted &mdash; explaining overexcitabilities</a></li>
+      <li><a href="https://www.mdpi.com/2227-7102/14/8/817" target="_blank" rel="noopener">Overexcitabilities in Young Highly to Profoundly Gifted Learners &mdash; open access</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Wood, Bouchard, De Wit, Martinson and Van Petegem (Education Sciences, 2024) ran a
+          mixed-methods study of 88 highly to profoundly gifted children aged 4&ndash;13 (WISC scores of 140
+          or above) from the United States and Belgium, using parent questionnaires, developmental
+          histories and semi-structured interviews, framed through Dabrowski&rsquo;s theory of overexcitability.
+          Nearly every participant &mdash; 99% &mdash; showed three or more overexcitabilities operating together,
+          with emotional, intellectual and imaginational overexcitability the most common combination;
+          intellectual (86%) and emotional (82%) overexcitability were close to universal in this group.
+          Interview data also surfaced what Dabrowski called &ldquo;developmental dynamisms&rdquo; &mdash; higher-order
+          traits including a drive toward autonomy, perfectionism, and deep empathy. Boys and girls
+          showed comparable profiles, and 89% of families reported a history of giftedness across
+          generations. The authors argue overexcitability assessment should be built into gifted
+          identification itself, and call for universal screening at kindergarten entry alongside
+          professional training to prevent these traits being misread as behavioural or emotional
+          disorders.</p></details>
+      </li>
+      <li><a href="https://giftedconsortium.com/wp-content/uploads/2024/08/education.pdf" target="_blank" rel="noopener">Wood et al., overexcitabilities &amp; gifted learners (2024)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>This companion piece from the Gifted Consortium summarises the same underlying research by
+          Wood and colleagues (2024) in a more practitioner-facing form. It restates the core finding &mdash;
+          that among highly and profoundly gifted children aged 4 to 13, almost all (99%) show three or
+          more of Dabrowski&rsquo;s five overexcitabilities operating together, most often the emotional,
+          intellectual and imaginational combination &mdash; and translates it into practical implications for
+          schools rather than academic framing. Where the original journal article speaks to
+          researchers, this version is aimed at the educators, parents and clinicians who actually
+          encounter these children day to day, and it repeats the study&rsquo;s central recommendation:
+          overexcitabilities should be actively assessed as part of gifted identification, not treated
+          as an unrelated behavioural footnote. It&rsquo;s included here alongside the primary journal article
+          because it makes the same evidence base easier to hand directly to colleagues who want the
+          practical version rather than the full methods section.</p></details>
+      </li>
+      <li><a href="https://tasgifted.com/explain-overexcitabilities-in-gifted-students-as-described-by-dabrowski/" target="_blank" rel="noopener">Tasmanian Association for the Gifted &mdash; explaining overexcitabilities</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>This explainer from the Tasmanian Association for the Gifted lays out Kazimierz Dabrowski&rsquo;s
+          five overexcitabilities in plain, classroom-friendly language, without the density of the
+          original academic sources. Psychomotor overexcitability shows up as excess physical energy
+          and restlessness &mdash; a student who finds it genuinely hard to stay still. Sensual
+          overexcitability is a heightened reaction to sensory input: smells, tastes, textures, sounds
+          that other students barely register. Intellectual overexcitability is a strong, sometimes
+          relentless drive toward curiosity and the pursuit of knowledge. Imaginational overexcitability
+          produces a rich inner fantasy life and strong creative tendencies. Emotional overexcitability
+          brings intense feelings, a wide emotional range and deep empathy for others. The page&rsquo;s key
+          message for teachers is balance: these traits can be a genuine source of creativity and
+          compassion, but the same intensity can tip into overwhelm and anxiety without support, so
+          recognising overexcitability early is what allows adults to respond to it constructively
+          rather than as simple misbehaviour.</p></details>
+      </li>
     </ul>
   </div>
 
@@ -661,10 +777,100 @@
       internationally: these students exist in meaningful numbers in Australian classrooms and are
       routinely missed by identification processes designed around a single profile of giftedness.</p>
     <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
-      <li><a href="https://journals.sagepub.com/doi/10.1177/0016986214534976" target="_blank" rel="noopener">An Operational Definition of Twice-Exceptional Learners &mdash; Reis, Baum &amp; Burke</a></li>
-      <li><a href="https://www.researchgate.net/publication/227889778_Dual_differentiation_An_approach_for_meeting_the_curricular_needs_of_gifted_students_with_learning_disabilities" target="_blank" rel="noopener">Dual Differentiation: An Approach for Meeting the Curricular Needs of Gifted Students with Learning Disabilities &mdash; Baum</a></li>
-      <li><a href="https://eric.ed.gov/?id=EJ1272404" target="_blank" rel="noopener">Twice-Exceptionality in Australia: Prevalence Estimates &mdash; Australasian Journal of Gifted Education (2020)</a></li>
-      <li><a href="https://www.aaegt.net.au/what-is-twice-exceptionality" target="_blank" rel="noopener">What is twice exceptionality? &mdash; AAEGT</a></li>
+      <li><a href="https://digitalcommons.sacredheart.edu/cgi/viewcontent.cgi?article=1082&amp;context=ced_fac" target="_blank" rel="noopener">Dual Differentiation: An Approach for Meeting the Curricular Needs of Gifted Students with Learning Disabilities &mdash; Baum (free PDF)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Baum, Cooper and Neu (Psychology in the Schools, 2001) introduce &ldquo;dual differentiation&rdquo; as an
+          answer to a specific classroom dilemma: academically talented students who also struggle with
+          reading, mathematics, spelling, handwriting or organisational skills, and who become
+          frustrated early because schools default to remediation alone while their underlying talent
+          stays invisible and undeveloped. Drawing on the federally funded Project HIGH HOPES
+          (1993&ndash;1996), the authors argue schools shouldn&rsquo;t have to choose between talent development and
+          remediation &mdash; dual differentiation does both at once, developing a student&rsquo;s genuine strengths
+          while explicitly teaching strategies to compensate for specific weaknesses. Practically, this
+          means maintaining sophisticated, advanced-level content and genuine engagement with authentic,
+          real-world problems, rather than lowering the ceiling because a student also needs support.
+          The paper&rsquo;s core contribution is naming the masking effect directly &mdash; disability hiding
+          giftedness, and giftedness hiding disability &mdash; and insisting both exceptionalities need to be
+          recognised and nurtured together, not addressed one after the other.</p></details>
+      </li>
+      <li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1696805/full" target="_blank" rel="noopener">Twice-exceptional students: a systematic review to outline the distinctive characteristics through a multidimensional lens (2025)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Rizzo, Pinnelli and Minnaert (Frontiers in Education, 2025) systematically reviewed 19 empirical
+          studies published between 2013 and 2025, drawn from Web of Science, SCOPUS, EBSCO Education
+          Source and ERIC, to map what actually distinguishes twice-exceptional students from gifted
+          peers, students with a diagnosed difficulty alone, and typically developing students. They
+          organise the findings across six domains. Cognitively, 2e students show pronounced
+          intra-individual variability &mdash; strong abstract reasoning sitting alongside real weaknesses in
+          processing speed and working memory. Academically, advanced reasoning often doesn&rsquo;t translate
+          into written output, and rapid initial learning can struggle to consolidate into a stable
+          skill. Socially, peer difficulties, isolation and feeling misunderstood are common, even
+          alongside genuinely strong communication ability. Emotionally, heightened sensitivity acts as
+          both a resource and a vulnerability, and physically, fine-motor weaknesses and fatigue from
+          constant compensatory effort show up repeatedly. The review&rsquo;s central conclusion, directly
+          useful for identification: no single diagnostic profile of twice-exceptionality exists, so
+          relying on IQ scores alone will miss students whose profile doesn&rsquo;t fit the pattern &mdash;
+          personalised, multidimensional assessment is what the evidence actually supports.</p></details>
+      </li>
+      <li><a href="https://www.mdpi.com/2227-7102/14/10/1048" target="_blank" rel="noopener">Special Education Status and Underidentification of Twice-Exceptional Students: Insights from ECLS-K Data (2024)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Jolly and Barnard-Brak (Education Sciences, 2024) used the Early Childhood Longitudinal
+          Study&mdash;Kindergarten, a nationally representative US sample of roughly 18,174 students, to put
+          a hard number on under-identification. Focusing on 1,582 students who had an Individualized
+          Education Plan by third grade, they used logistic regression to match reading, maths and
+          executive-functioning scores against the students who had already been identified as gifted
+          without a disability. The result: 17&ndash;18% more students with disabilities should have been
+          identified for gifted programs based on achievement scores alone &mdash; roughly 1 in 9 students
+          currently in gifted programs should statistically be twice-exceptional but aren&rsquo;t recognised
+          as such. The students most likely to be missed were male, non-White (Hispanic, African
+          American and Asian students), from low-income households, or showing internalising problems
+          like anxiety and depression, attention difficulties, or poor inhibitory control. The clear
+          message for identification processes: disability status itself is acting as a barrier to
+          being seen as gifted, independent of a student&rsquo;s actual achievement.</p></details>
+      </li>
+      <li><a href="https://news.griffith.edu.au/2020/11/05/rates-of-twice-exceptional-children-higher-than-previously-thought/" target="_blank" rel="noopener">Twice-Exceptionality in Australia: Prevalence Estimates &mdash; Griffith University coverage of the study (2020, free)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Dr Michelle Ronksley-Pavia&rsquo;s study (Australasian Journal for the Education of the Gifted,
+          2020), conducted through Griffith University, tackles a question with real funding and policy
+          consequences: how many twice-exceptional students are actually in Australian schools? Her
+          prevalence estimates range from a conservative 2% &mdash; roughly 78,668 students &mdash; to a more
+          progressive 7%, or around 283,204 students, depending on which identification criteria are
+          applied. The headline argument is that these students are significantly under-recognised in
+          practice, well below even the conservative estimate, because current identification systems
+          aren&rsquo;t built to catch the combination. Ronksley-Pavia directly challenges the common
+          assumption that giftedness and disability sit at opposite ends of a single spectrum, stating
+          plainly that there is no correlation between the two &mdash; a student can be highly capable and
+          have a genuine learning difficulty at the same time, with neither cancelling the other out.
+          She calls for dedicated policy development and targeted funding so these students stop
+          falling through the gap between two separate systems.</p></details>
+      </li>
+      <li><a href="https://www.mdpi.com/2227-7102/15/12/1593" target="_blank" rel="noopener">Compounded Disadvantage: Issues in Addressing the Educational Requirements of Twice-Exceptional Students in Schools (2025)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Ronksley-Pavia and Clark (Education Sciences, 2025) gathered stakeholder perspectives on the
+          real barriers facing twice-exceptional students in Australian schools, and organise what they
+          found into five themes. First, a policy gap: disability support is mandatory while gifted
+          education is discretionary, creating what the authors call &ldquo;policy asymmetry&rdquo; that leaves
+          twice-exceptional students falling between two systems. Second, teachers are given little to
+          no training &mdash; in initial teacher education or ongoing professional development &mdash; in how to
+          identify or support this population. Third, the paper offers a genuinely useful four-point
+          explanation of why identification fails: masking effects, behaviour-first interpretations
+          (reading a student through their behaviour rather than their profile), output-dependent bias
+          (judging ability by what a student produces rather than what they understand), and executive
+          function being misread as something else entirely. Fourth, mainstream classrooms typically
+          lack the differentiated, strengths-based instruction these students need. Fifth, without
+          school-based support, families absorb the advocacy, financial and emotional cost themselves,
+          sometimes to the point of homeschooling. The paper&rsquo;s central idea is that these failures don&rsquo;t
+          just add up &mdash; they multiply each other, producing a compounded disadvantage that is worse
+          than any single gap on its own.</p></details>
+      </li>
+      <li><a href="https://www.aaegt.net.au/what-is-twice-exceptionality" target="_blank" rel="noopener">What is twice exceptionality? &mdash; AAEGT</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>The Australian Association for the Education of the Gifted and Talented&rsquo;s explainer
+          introduces twice-exceptionality for a general audience of parents and educators, using the
+          working description that young children can show early signs of giftedness together with a
+          learning difficulty at the same time &mdash; the two are not mutually exclusive, and one does not
+          rule out the other. The page situates twice-exceptionality within broader gifted
+          identification processes, noting how easily one exceptionality can obscure the other when
+          schools are only looking for a single profile: a student&rsquo;s giftedness can mask a genuine
+          learning difficulty, keeping them from getting support, while a diagnosed learning difficulty
+          can just as easily mask real giftedness, keeping a capable student from being challenged. It&rsquo;s
+          included here as an accessible, Australian-context entry point for teachers who are new to the
+          concept, sitting alongside the more research-heavy citations on this page as a plain-language
+          starting reference rather than a primary study.</p></details>
+      </li>
     </ul>
   </div>
 
