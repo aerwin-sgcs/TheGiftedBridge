@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gifted Bridge &mdash; Supporting Underachieving Gifted Students</title>
+<style>
+  :root{
+    --navy:#1D3557;
+    --cream:#FBF9F3;
+    --white:#FFFFFF;
+    --royal:#3457A6;
+    --olive:#8A9A3B;
+    --magenta:#C05C7E;
+    --honey:#E29A34;
+    --deepred:#7A2430;
+    --teal:#1B6E75;
+    --teal-light:#E4F1F1;
+    --border:#E4E0D4;
+    --text-soft:#5B6472;
+    --shadow: 0 4px 18px rgba(29,53,87,0.08);
+    --radius: 14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.6;
+  }
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ---------- Top bar ---------- */
+  header.topbar{
+    background:var(--white);
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; z-index:50;
+    box-shadow:var(--shadow);
+  }
+  .topbar-inner{
+    max-width:1180px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; font-size:1.25rem; color:var(--navy);
+    cursor:pointer; user-select:none;
+  }
+  .brand .dot{
+    width:14px;height:14px;border-radius:50%;
+    background:conic-gradient(var(--royal),var(--olive),var(--honey),var(--deepred),var(--magenta),var(--royal));
+    flex:0 0 auto;
+  }
+  .brand small{
+    display:block; font-weight:500; font-size:0.7rem; color:var(--text-soft); letter-spacing:.04em;
+  }
+  nav.mainnav{
+    display:flex; flex-wrap:wrap; gap:4px;
+  }
+  nav.mainnav button{
+    background:none; border:none; cursor:pointer;
+    font-size:0.86rem; font-weight:600; color:var(--navy);
+    padding:8px 12px; border-radius:8px;
+    font-family:inherit;
+  }
+  nav.mainnav button:hover{ background:var(--teal-light); }
+  nav.mainnav button.active{ background:var(--navy); color:var(--white); }
+
+  /* ---------- Page container ---------- */
+  main{ max-width:1180px; margin:0 auto; padding:36px 24px 80px; }
+  .page{ display:none; animation:fadein .25s ease; }
+  .page.visible{ display:block; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .kicker{
+    text-transform:uppercase; letter-spacing:.08em; font-size:0.75rem;
+    font-weight:800; color:var(--teal); margin-bottom:8px;
+  }
+  h1{ font-size:2.1rem; margin:0 0 10px; color:var(--navy); }
+  h2{ font-size:1.5rem; margin:36px 0 14px; color:var(--navy); }
+  h3{ font-size:1.15rem; margin:22px 0 8px; color:var(--navy); }
+  p{ margin:0 0 14px; color:#2b3648; }
+  .lede{ font-size:1.1rem; color:var(--text-soft); max-width:760px; }
+
+  .card{
+    background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+    padding:22px 24px; box-shadow:var(--shadow);
+  }
+
+  /* ---------- Home / two doors ---------- */
+  .hero{ text-align:center; padding:28px 0 8px; }
+  .hero h1{ font-size:2.4rem; }
+  .doors{
+    display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:34px 0 10px;
+  }
+  @media (max-width:760px){ .doors{ grid-template-columns:1fr; } }
+  .door{
+    border-radius:18px; padding:30px 26px; cursor:pointer; border:none; text-align:left;
+    color:var(--white); position:relative; overflow:hidden;
+    box-shadow:var(--shadow); transition:transform .15s ease;
+    font-family:inherit;
+  }
+  .door:hover{ transform:translateY(-3px); }
+  .door.door-student{ background:linear-gradient(135deg, var(--royal), #24406e); }
+  .door.door-lesson{ background:linear-gradient(135deg, var(--teal), #124b50); }
+  .door .door-kicker{ font-size:0.75rem; text-transform:uppercase; letter-spacing:.08em; opacity:.85; font-weight:800; margin-bottom:8px; }
+  .door h3{ color:var(--white); font-size:1.4rem; margin:0 0 10px; }
+  .door p{ color:rgba(255,255,255,0.9); margin:0; }
+  .door .arrow{ margin-top:16px; font-weight:800; }
+
+  .quicklinks{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px;
+  }
+  @media (max-width:900px){ .quicklinks{ grid-template-columns:repeat(2,1fr); } }
+  .quicklink{
+    background:var(--white); border:1px solid var(--border); border-radius:12px; padding:16px;
+    cursor:pointer; text-align:left; font-family:inherit;
+  }
+  .quicklink:hover{ border-color:var(--teal); }
+  .quicklink .ql-tag{ font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+  .quicklink h4{ margin:0 0 4px; font-size:1rem; color:var(--navy); }
+  .quicklink span{ font-size:.85rem; color:var(--text-soft); }
+
+  /* ---------- Framework badge ---------- */
+  .anchor-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--teal-light); color:var(--teal); border-radius:999px;
+    padding:6px 14px; font-size:.82rem; font-weight:700; margin-bottom:18px;
+  }
+
+  /* ---------- Concept grid (definitions) ---------- */
+  .concept-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:20px 0; }
+  @media (max-width:760px){ .concept-grid{ grid-template-columns:1fr; } }
+  .concept-card{ border-radius:var(--radius); padding:20px; border:1px solid var(--border); background:var(--white); }
+  .concept-card h3{ margin-top:0; }
+  .concept-card .tag{
+    display:inline-block; font-size:.7rem; font-weight:800; text-transform:uppercase;
+    letter-spacing:.05em; padding:4px 10px; border-radius:999px; margin-bottom:10px;
+  }
+
+  /* ---------- Nav-back links ---------- */
+  .crosslink{
+    display:inline-block; margin-top:10px; font-size:.9rem; font-weight:700;
+    background:var(--teal-light); color:var(--teal); padding:8px 14px; border-radius:10px;
+  }
+  .crosslink:hover{ text-decoration:none; opacity:.85; }
+
+  /* ---------- Task bank ---------- */
+  .filter-row{ display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px; }
+  .filter-pill{
+    border:1.5px solid var(--border); background:var(--white); color:var(--navy);
+    padding:7px 14px; border-radius:999px; font-size:.82rem; font-weight:700; cursor:pointer;
+    font-family:inherit;
+  }
+  .filter-pill.active{ background:var(--navy); border-color:var(--navy); color:var(--white); }
+  .task-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:900px){ .task-grid{ grid-template-columns:1fr; } }
+  .task-card{
+    background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+    padding:20px; box-shadow:var(--shadow); display:none;
+  }
+  .task-card.show{ display:block; }
+  .task-card .tc-kicker{ font-size:.7rem; font-weight:800; text-transform:uppercase; color:var(--text-soft); letter-spacing:.05em; }
+  .task-card h4{ margin:6px 0 4px; font-size:1.1rem; color:var(--navy); }
+  .task-card .tc-meta{ font-size:.82rem; color:var(--text-soft); margin-bottom:10px; }
+  .task-card .tc-section-label{ font-size:.72rem; font-weight:800; color:var(--teal); text-transform:uppercase; letter-spacing:.05em; margin:12px 0 4px; }
+  .tc-tags{ display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+  .tc-tag{ font-size:.72rem; font-weight:800; color:var(--white); padding:4px 10px; border-radius:999px; }
+
+  /* ---------- Stub / coming soon ---------- */
+  .stub-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+  @media (max-width:900px){ .stub-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .stub-grid{ grid-template-columns:1fr; } }
+  .stub{
+    border:1.5px dashed var(--border); border-radius:12px; padding:16px; text-align:center; color:var(--text-soft);
+    background:var(--white);
+  }
+  .stub b{ display:block; color:var(--navy); margin-bottom:4px; }
+  .stub span{ font-size:.78rem; }
+
+  footer{
+    text-align:center; padding:26px; color:var(--text-soft); font-size:.85rem;
+    border-top:1px solid var(--border); margin-top:40px;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand" onclick="showPage('home')">
+      <span class="dot"></span>
+      <div>The Gifted Bridge
+        <small>Underachieving Gifted &middot; Teacher Toolkit</small>
+      </div>
+    </div>
+    <nav class="mainnav" id="mainnav">
+      <button data-page="home" onclick="showPage('home')">Home</button>
+      <button data-page="intro" onclick="showPage('intro')">Foundations</button>
+      <button data-page="underachieve" onclick="showPage('underachieve')">Why Underachieve</button>
+      <button data-page="behaviour" onclick="showPage('behaviour')">Behaviour</button>
+      <button data-page="sel" onclick="showPage('sel')">Social-Emotional</button>
+      <button data-page="tasks" onclick="showPage('tasks')">Enrichment Tasks</button>
+      <button data-page="links" onclick="showPage('links')">Curated Links</button>
+      <button data-page="helpstudent" onclick="showPage('helpstudent')">Help Students Learn</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<section class="page visible" id="page-home">
+  <div class="hero">
+    <div class="kicker">A Teacher Toolkit</div>
+    <h1>Helping underachieving gifted students break through the ceiling</h1>
+    <p class="lede" style="margin:0 auto;">
+      Practical, research-anchored support for K&ndash;12 teachers &mdash; understanding why bright
+      students underachieve, and what to actually do about it in the classroom.
+    </p>
+  </div>
+
+  <div class="doors">
+    <button class="door door-student" onclick="showPage('underachieve')">
+      <div class="door-kicker">Start here if&hellip;</div>
+      <h3>I have a student in mind</h3>
+      <p>A specific student is disengaging, underperforming, or hard to reach. Start with why
+        this happens, then move into behaviour or social-emotional support.</p>
+      <div class="arrow">Explore &rarr;</div>
+    </button>
+    <button class="door door-lesson" onclick="showPage('tasks')">
+      <div class="door-kicker">Start here if&hellip;</div>
+      <h3>I'm planning a lesson</h3>
+      <p>You want enrichment ideas &mdash; not extension &mdash; for a subject and stage, ready to
+        drop into a lesson this week.</p>
+      <div class="arrow">Explore &rarr;</div>
+    </button>
+  </div>
+
+  <h2>Or jump straight to&hellip;</h2>
+  <div class="quicklinks">
+    <button class="quicklink" onclick="showPage('intro')">
+      <div class="ql-tag" style="color:var(--teal)">Foundations</div>
+      <h4>What is giftedness?</h4>
+      <span>Ceilings, Gagn&eacute;'s model &amp; the Williams Model, explained.</span>
+    </button>
+    <button class="quicklink" onclick="showPage('behaviour')">
+      <div class="ql-tag" style="color:var(--deepred)">Behaviour</div>
+      <h4>Reading the behaviour</h4>
+      <span>Why disengagement can look like defiance &mdash; anchored on Webb.</span>
+    </button>
+    <button class="quicklink" onclick="showPage('sel')">
+      <div class="ql-tag" style="color:var(--magenta)">Social-Emotional</div>
+      <h4>The inner experience</h4>
+      <span>Overexcitabilities &amp; asynchronous development &mdash; anchored on Dabrowski.</span>
+    </button>
+    <button class="quicklink" onclick="showPage('helpstudent')">
+      <div class="ql-tag" style="color:var(--honey)">Student Strategies</div>
+      <h4>How to help them learn</h4>
+      <span>What your students are already being taught, via Help Me Learn.</span>
+    </button>
+  </div>
+</section>
+
+<!-- ============ INTRO / FOUNDATIONS ============ -->
+<section class="page" id="page-intro">
+  <div class="kicker">Foundations</div>
+  <h1>Understanding giftedness &amp; underachievement</h1>
+  <p class="lede">The concepts every section of this toolkit builds on.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <span class="tag" style="background:var(--teal-light); color:var(--teal);">Definition</span>
+      <h3>What does "gifted" mean?</h3>
+      <p>A student who demonstrates, or has the potential to demonstrate, ability significantly
+        beyond same-age peers in one or more domains &mdash; intellectual, creative,
+        social-emotional, or physical/sensorimotor. Giftedness is a <em>potential</em>, not a
+        guarantee of high performance: whether that potential turns into visible achievement
+        depends heavily on the conditions around the student (see Gagn&eacute;'s model, below).</p>
+    </div>
+    <div class="concept-card">
+      <span class="tag" style="background:#FBEAEF; color:var(--magenta);">Definition</span>
+      <h3>What is an "underachieving gifted" student?</h3>
+      <p>A student with demonstrated high ability or potential whose actual output &mdash; grades,
+        work completed, engagement &mdash; sits persistently and significantly below that
+        potential. It isn't laziness by default: it is usually a signal that something in the
+        student, the environment, or both, is blocking the path from ability to achievement.</p>
+    </div>
+    <div class="concept-card">
+      <span class="tag" style="background:#FFF3E2; color:var(--honey);">Concept</span>
+      <h3>What is a "ceiling"?</h3>
+      <p>Many gifted students coast through early schooling on natural ability alone, without ever
+        needing to develop study strategies, planning, or tolerance for struggle. A ceiling is the
+        point &mdash; often at a stage transition like Year 8 or Year 10 &mdash; where content
+        finally demands more than raw ability. The student hits real difficulty for the first
+        time and doesn't know <em>how</em> to work through it, because they've never had to learn
+        how. This can look like sudden disengagement, avoidance, or a sharp grade drop.</p>
+    </div>
+    <div class="concept-card">
+      <span class="tag" style="background:var(--teal-light); color:var(--teal);">Concept</span>
+      <h3>Student voice &amp; choice</h3>
+      <p>Giving students real input into what they learn, how they show it, and at what pace is
+        one of the most consistent protective factors against underachievement. Choice restores a
+        sense of ownership and relevance that many gifted students lose when work feels
+        pre-decided and too easy.</p>
+    </div>
+  </div>
+
+  <h2>Anchor framework: Gagn&eacute;'s DMGT</h2>
+  <div class="card">
+    <p>The <strong>Differentiating Model of Giftedness and Talent (DMGT)</strong>, developed by
+      Fran&ccedil;oys Gagn&eacute;, is the framework this toolkit uses to explain giftedness and
+      underachievement (see <a href="https://gagnefrancoys.wixsite.com/dmgt-mddt" target="_blank" rel="noopener">gagnefrancoys.wixsite.com/dmgt-mddt</a>).</p>
+    <p>Gagn&eacute; separates <strong>gifts</strong> &mdash; natural, untrained abilities in
+      intellectual, creative, social-emotional, or sensorimotor domains &mdash; from
+      <strong>talents</strong> &mdash; well-developed skills in a specific field, such as
+      mathematics, music, or athletics. Gifts only become talents through a
+      <strong>developmental process</strong> of learning, training and deliberate practice.</p>
+    <p>That process is shaped by <strong>catalysts</strong>:</p>
+    <div class="concept-grid" style="margin-top:6px;">
+      <div class="concept-card" style="background:var(--teal-light); border:none;">
+        <h3 style="margin-top:0;">Intrapersonal catalysts</h3>
+        <p style="margin-bottom:0;">Traits, physical/mental characteristics, motivation, volition,
+          self-management and self-awareness &mdash; what the student brings to the process.</p>
+      </div>
+      <div class="concept-card" style="background:#FFF3E2; border:none;">
+        <h3 style="margin-top:0;">Environmental catalysts</h3>
+        <p style="margin-bottom:0;">Milieu, the people around the student, the provisions
+          available to them, and significant events &mdash; what the world does to support or
+          block that process.</p>
+      </div>
+    </div>
+    <p style="margin-top:14px;">Underachievement, in DMGT terms, happens when these catalysts
+      block or fail to support the gift-to-talent pathway &mdash; not because the gift itself is
+      missing.</p>
+  </div>
+
+  <h2>Anchor framework for enrichment: the Williams Model</h2>
+  <div class="card">
+    <p>Frank Williams' model is used throughout the <a href="#" onclick="showPage('tasks'); return false;">Enrichment Task Bank</a>
+      as a lens for designing tasks that build both thinking and feeling processes alongside
+      subject content &mdash; not as a rigid checklist, but as a source of variety so every task
+      doesn't ask for the same kind of thinking.</p>
+    <div class="tc-tags" style="margin-top:12px;">
+      <span class="tc-tag" style="background:var(--royal);">Fluency</span>
+      <span class="tc-tag" style="background:var(--olive);">Flexibility</span>
+      <span class="tc-tag" style="background:var(--magenta);">Originality</span>
+      <span class="tc-tag" style="background:var(--honey);">Elaboration</span>
+      <span class="tc-tag" style="background:var(--deepred);">Risk-Taking</span>
+      <span class="tc-tag" style="background:var(--teal);">Complexity</span>
+      <span class="tc-tag" style="background:#5B6472;">Curiosity</span>
+      <span class="tc-tag" style="background:#7A5FA6;">Imagination</span>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0;">Every task in the enrichment bank is tagged with
+      whichever of these processes it naturally draws on &mdash; a task might hit two or three at
+      once &mdash; so you can filter for the kind of thinking you want a lesson to stretch.</p>
+  </div>
+</section>
+
+<!-- ============ WHY UNDERACHIEVE ============ -->
+<section class="page" id="page-underachieve">
+  <div class="kicker" style="color:var(--royal);">Why Students Underachieve</div>
+  <div class="anchor-badge" style="background:#E9EDF7; color:var(--royal);">Anchored on Gagn&eacute;'s DMGT</div>
+  <h1>Why does a gifted student underachieve?</h1>
+  <p class="lede">Underachievement isn't one thing &mdash; it's what happens when the pathway from
+    ability to achievement gets blocked. Gagn&eacute;'s DMGT gives us two places to look: inside
+    the student, and around them.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:5px solid var(--royal);">
+      <h3>Intrapersonal factors</h3>
+      <p>Poor self-regulation and planning skills that were never needed until now; low
+        self-efficacy despite high ability ("I'm not actually smart, I've just been lucky");
+        perfectionism that makes starting feel too risky; low motivation when work feels
+        irrelevant or already mastered; anxiety and fear of failure.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--teal);">
+      <h3>Environmental factors</h3>
+      <p>Curriculum pitched below the student's actual level; a classroom culture that rewards
+        speed and compliance over depth; family or peer dynamics that discourage visible effort;
+        under-identification, so the student's needs are never actually recognised; a lack of
+        role models or provisions that stretch them.</p>
+    </div>
+  </div>
+
+  <h2>What the research says</h2>
+  <div class="card">
+    <p>Research on this question spans systematic reviews mapping the internal and external
+      factors behind gifted underachievement, meta-analyses on which interventions actually
+      reverse it once it's set in, and ongoing work reconceptualising how underachievement itself
+      should be defined &mdash; a reminder that this is an active, evolving area of research, not
+      a solved problem.</p>
+    <p style="margin-bottom:0;">Sources:</p>
+    <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11402643/" target="_blank" rel="noopener">Unpacking the underachievement of gifted students: a systematic review of internal and external factors (2024)</a></li>
+      <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0016986220908601" target="_blank" rel="noopener">The effectiveness of current interventions to reverse the underachievement of gifted students (2020)</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1747938X18301362" target="_blank" rel="noopener">Why do we know so little about the factors associated with gifted underachievement? (2018)</a></li>
+      <li><a href="https://journals.sagepub.com/doi/10.1177/00169862261448147" target="_blank" rel="noopener">Gifted underachievement redefined and reconceptualized (2026)</a></li>
+    </ul>
+  </div>
+
+  <a class="crosslink" href="#" onclick="showPage('behaviour'); return false;">See how this can show up as behaviour &rarr;</a>
+  <a class="crosslink" href="#" onclick="showPage('sel'); return false;" style="margin-left:10px;">Or as social-emotional difficulty &rarr;</a>
+</section>
+
+<!-- ============ BEHAVIOUR ============ -->
+<section class="page" id="page-behaviour">
+  <div class="kicker" style="color:var(--deepred);">Behaviour</div>
+  <div class="anchor-badge" style="background:#FBEAEA; color:var(--deepred);">Anchored on James T. Webb</div>
+  <h1>When underachievement looks like misbehaviour</h1>
+  <p class="lede">Boredom, frustration and a mismatch between ability and task can look a lot like
+    defiance, inattention, or disengagement &mdash; and gifted students are frequently
+    misread, or even misdiagnosed, as a result.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <h3>Boredom-driven disruption</h3>
+      <p>Under-challenged students may act out, daydream, or disengage &mdash; not because they
+        can't do the work, but because there's nothing in it that requires their attention.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <h3>Misdiagnosis risk</h3>
+      <p>James T. Webb's work highlights how traits common in gifted students &mdash; intensity,
+        argumentativeness, inattention to uninteresting tasks &mdash; can be mistaken for ADHD,
+        ODD, or other conditions, sometimes obscuring the real issue: unmet need.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <h3>Defiance as a control response</h3>
+      <p>When a student has no meaningful say in their work, refusal can become one of the only
+        forms of control available to them &mdash; connecting straight back to student voice
+        and choice.</p>
+    </div>
+  </div>
+
+  <h2>What the research says</h2>
+  <div class="card">
+    <p>James T. Webb's <em>Misdiagnosis and Dual Diagnoses of Gifted Children and Adults</em>
+      remains the foundational text on this issue. More recent research has continued to explore
+      the overlap and distinction between giftedness and conditions like ADHD.</p>
+    <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
+      <li><a href="https://www.jeffcogifted.org/uploads/1/0/8/9/108938165/misdiagnosis_and_diagnosis_of_gt_by__james_t_webb.pdf" target="_blank" rel="noopener">Misdiagnosis and Dual Diagnosis of Gifted Children &mdash; James T. Webb</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S016028962300017X" target="_blank" rel="noopener">Cognitive characteristics of intellectually gifted children with a diagnosis of ADHD (2023)</a></li>
+    </ul>
+  </div>
+
+  <a class="crosslink" href="#" onclick="showPage('tasks'); return false;">Explore enrichment tasks that re-engage &rarr;</a>
+</section>
+
+<!-- ============ SOCIAL-EMOTIONAL ============ -->
+<section class="page" id="page-sel">
+  <div class="kicker" style="color:var(--magenta);">Social-Emotional</div>
+  <div class="anchor-badge" style="background:#FBEAEF; color:var(--magenta);">Anchored on Dabrowski</div>
+  <h1>The inner experience of being gifted</h1>
+  <p class="lede">Many gifted students feel things &mdash; and think about things &mdash; more
+    intensely than their peers. Kazimierz Dabrowski's theory gives language to that intensity.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <h3>Overexcitabilities</h3>
+      <p>Dabrowski described five heightened modes of response: psychomotor, sensual,
+        intellectual, imaginational, and emotional. A student with strong emotional or
+        intellectual overexcitability may feel everyday events far more intensely than peers &mdash;
+        which can look like "overreacting" but is a genuine difference in intensity.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <h3>Asynchronous development</h3>
+      <p>A student can be years ahead cognitively while being entirely age-typical &mdash; or even
+        behind &mdash; socially and emotionally. That gap is often invisible to adults who only
+        see the academic side, and it can be a major source of friction and isolation.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <h3>Perfectionism</h3>
+      <p>When a student has rarely had to try, failure feels catastrophic rather than normal.
+        Avoidance of starting a task can be safer than risking an imperfect result.</p>
+    </div>
+  </div>
+
+  <h2>What the research says</h2>
+  <div class="card">
+    <p>Dabrowski's Theory of Positive Disintegration remains the central framework for
+      understanding gifted emotional intensity, and continues to be studied and applied in gifted
+      education research.</p>
+    <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
+      <li><a href="https://www.researchgate.net/publication/388076057_Overexcitabilities_in_Young_Highly_to_Profoundly_Gifted_Learners" target="_blank" rel="noopener">Overexcitabilities in Young Highly to Profoundly Gifted Learners</a></li>
+      <li><a href="https://giftedconsortium.com/wp-content/uploads/2024/08/education.pdf" target="_blank" rel="noopener">Wood et al., overexcitabilities &amp; gifted learners (2024)</a></li>
+      <li><a href="https://tasgifted.com/explain-overexcitabilities-in-gifted-students-as-described-by-dabrowski/" target="_blank" rel="noopener">Tasmanian Association for the Gifted &mdash; explaining overexcitabilities</a></li>
+    </ul>
+  </div>
+
+  <a class="crosslink" href="#" onclick="showPage('behaviour'); return false;">See how this connects to behaviour &rarr;</a>
+</section>
+
+<!-- ============ ENRICHMENT TASKS ============ -->
+<section class="page" id="page-tasks">
+  <div class="kicker" style="color:var(--teal);">Enrichment Task Bank</div>
+  <h1>Science &mdash; Stage 4 &amp; 5</h1>
+  <p class="lede">Enrichment, not extension: tasks that go deeper and wider, not just more of the
+    same. Every card is tagged with the Williams Model process(es) it draws on &mdash; filter to
+    find the kind of thinking you want to stretch.</p>
+
+  <div class="filter-row" id="filterRow">
+    <button class="filter-pill active" onclick="filterTasks('all', this)">All</button>
+    <button class="filter-pill" onclick="filterTasks('fluency', this)">Fluency</button>
+    <button class="filter-pill" onclick="filterTasks('flexibility', this)">Flexibility</button>
+    <button class="filter-pill" onclick="filterTasks('originality', this)">Originality</button>
+    <button class="filter-pill" onclick="filterTasks('elaboration', this)">Elaboration</button>
+    <button class="filter-pill" onclick="filterTasks('risk-taking', this)">Risk-Taking</button>
+    <button class="filter-pill" onclick="filterTasks('complexity', this)">Complexity</button>
+    <button class="filter-pill" onclick="filterTasks('curiosity', this)">Curiosity</button>
+    <button class="filter-pill" onclick="filterTasks('imagination', this)">Imagination</button>
+  </div>
+
+  <div class="task-grid" id="taskGrid">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 style="margin-top:50px;">Other subjects</h2>
+  <div class="stub-grid">
+    <div class="stub"><b>History</b><span>Sample card drafted &mdash; bank coming soon</span></div>
+    <div class="stub"><b>Mathematics</b><span>Coming soon</span></div>
+    <div class="stub"><b>English</b><span>Coming soon</span></div>
+    <div class="stub"><b>Geography</b><span>Coming soon</span></div>
+    <div class="stub"><b>PDHPE</b><span>Coming soon</span></div>
+    <div class="stub"><b>Technology</b><span>Coming soon</span></div>
+    <div class="stub"><b>Music</b><span>Coming soon</span></div>
+    <div class="stub"><b>Art</b><span>Coming soon</span></div>
+    <div class="stub"><b>Stage 6 courses</b><span>Coming soon</span></div>
+  </div>
+</section>
+
+<!-- ============ CURATED LINKS (stub) ============ -->
+<section class="page" id="page-links">
+  <div class="kicker" style="color:var(--olive);">Curated Links</div>
+  <h1>Gifted learning resources, by subject</h1>
+  <p class="lede">An annotated, growing list of external links &mdash; subject-specific
+    enrichment resources and general gifted-education organisations &mdash; for Years 6&ndash;12.
+    This section is under construction.</p>
+  <div class="card" style="text-align:center; color:var(--text-soft);">
+    Coming soon: annotated links per subject, explaining what each resource is and why it's useful.
+  </div>
+</section>
+
+<!-- ============ HELP STUDENTS LEARN ============ -->
+<section class="page" id="page-helpstudent">
+  <div class="kicker" style="color:var(--honey);">How to Help a Gifted Student Learn</div>
+  <h1>Speak the same language as your students</h1>
+  <p class="lede">This section (in progress) will cover practical teacher-facing strategies for
+    supporting gifted learners day-to-day. In the meantime, here's a resource already doing half
+    the job.</p>
+  <div class="card">
+    <h3 style="margin-top:0;">Help Me Learn</h3>
+    <p>A companion, student-facing site covering learning strategies, study techniques, and
+      James Anderson's Learnership framework &mdash; written directly for students in Grades
+      6&ndash;10. Knowing what your students are seeing here means you can reinforce the same
+      language and strategies in class, rather than introducing something new.</p>
+    <a class="crosslink" href="https://aerwin-sgcs.github.io/HelpMeLearn/" target="_blank" rel="noopener">Visit Help Me Learn &rarr;</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  The Gifted Bridge &mdash; a resource for differentiating for underachieving gifted students, K&ndash;12.
+</footer>
+
+<script>
+const TAG_COLORS = {
+  'fluency':'var(--royal)', 'flexibility':'var(--olive)', 'originality':'var(--magenta)',
+  'elaboration':'var(--honey)', 'risk-taking':'var(--deepred)', 'complexity':'var(--teal)',
+  'curiosity':'#5B6472', 'imagination':'#7A5FA6'
+};
+function tagLabel(t){
+  return t.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join('-');
+}
+
+const SCIENCE_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7', strand:'Working Scientifically', title:'Prove Me Wrong',
+    tags:['complexity','risk-taking'],
+    desc:'Students are given a plausible-sounding but scientifically flawed claim (a common myth). They must design an experiment that would genuinely test the claim, including identifying variables, controls, and the limitations of their own method.',
+    why:'Forces genuine experimental design rather than following a recipe, and rewards scepticism &mdash; there is no worksheet answer to copy.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Chemical Science &mdash; Mixtures &amp; Separation', title:'The Unreliable Recipe',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students are given a "recipe" for a mixture that a fictional company wants scaled up for mass production, but one ingredient doesn\'t mix properly at scale. Students identify the flaw, design a separation method, and pitch their fix to "the company".',
+    why:'Open-ended entry point with no single correct method; a real audience and product removes the "pointless worksheet" feeling.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Physical World &mdash; Forces &amp; Energy', title:'Build It to Break It',
+    tags:['originality','risk-taking','flexibility'],
+    desc:'Using limited materials, students design a structure that must fail in a predictable, explainable way under load &mdash; then explain the physics of exactly how and why it failed.',
+    why:'Failure is the goal, not the risk, which removes the fear of "getting it wrong" and lets students test real engineering trade-offs.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Earth &amp; Space', title:'Sell This Planet',
+    tags:['curiosity','elaboration','complexity'],
+    desc:'Using real data from a known exoplanet, students pitch it as a colonisation destination to a panel of "investors" who ask tough, evidence-based questions they must defend against.',
+    why:'Real astronomical data plus a skeptical audience means students must go beyond surface facts into genuine justification.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Living World &mdash; Body Systems', title:"Design a Body That Shouldn't Work",
+    tags:['imagination','originality','elaboration'],
+    desc:'Students design a fictional creature adapted to an extreme environment (deep ocean, volcanic vent, high altitude), justifying every body system choice with real biological principles.',
+    why:'Creative freedom is bounded by real science, so imagination has to be defended with evidence &mdash; not just decoration.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Chemical World &mdash; Particle Theory', title:'The Impossible Element',
+    tags:['imagination','originality','complexity'],
+    desc:'Students invent a fictional element and use periodic table trends to justify believable properties for it, including where it would sit on the table and why.',
+    why:'Requires real understanding of periodic trends to invent something plausible &mdash; you can\'t fake this without knowing the content.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9', strand:'Chemical World &mdash; Reactions', title:'The Forensic Case',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students use reaction types and chemical evidence to determine "what happened" at a fictional incident scene, writing up findings as a report to be cross-examined by peers.',
+    why:'Peer cross-examination means students must genuinely defend chemical reasoning, not just state an answer.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9', strand:'Physical World &mdash; Motion', title:'Redesign the Road Rule',
+    tags:['curiosity','complexity','elaboration'],
+    desc:'Using real data on stopping distances and reaction time, students evaluate whether an actual road rule is justified by the physics, and propose an evidence-based change if it isn\'t.',
+    why:'Connects physics to a real policy debate students can actually have opinions about, raising the stakes beyond the classroom.'
+  },
+  {
+    stage:'Stage 5', year:'Year 10', strand:'Earth &amp; Space &mdash; Global Systems', title:'The 100-Year Forecast',
+    tags:['complexity','risk-taking','curiosity'],
+    desc:'Using real climate and geological data trends, students construct a defensible prediction for a chosen region or ecosystem in 100 years, and identify what evidence would change their mind.',
+    why:'Requires holding a position while staying open to being wrong &mdash; genuine scientific thinking, not just fact recall.'
+  },
+  {
+    stage:'Stage 5', year:'Year 10', strand:'Living World &mdash; Genetics', title:'The Ethics Board',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Playing the role of a hospital ethics committee, students review a composite genetic-technology case (e.g. gene editing) and must produce a reasoned, defensible decision.',
+    why:'There is no clean right answer, which suits students who disengage from tasks with a single expected response.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Living World &mdash; Ecosystems', title:'The Invasive Species Dilemma',
+    tags:['complexity','elaboration','curiosity'],
+    desc:'Students investigate a real invasive species case study and design a management plan balancing ecological, economic and ethical trade-offs, defending it to a stakeholder panel.',
+    why:'Multiple defensible answers exist, and the stakeholder panel format rewards depth of justification over a "correct" plan.'
+  },
+  {
+    stage:'Stage 5', year:'Year 10', strand:'Physical World &mdash; Electricity', title:'Build the Impossible Circuit',
+    tags:['originality','risk-taking','fluency'],
+    desc:'Given an unusual real-world constraint (e.g. limited components, an odd use-case), students problem-solve toward a working circuit &mdash; there is no single correct schematic &mdash; and present the trade-offs they made.',
+    why:'Multiple valid solutions mean students can\'t look up "the answer"; they have to reason through trade-offs themselves.'
+  }
+];
+
+function renderTasks(){
+  const grid = document.getElementById('taskGrid');
+  grid.innerHTML = SCIENCE_TASKS.map(t=>{
+    const tagsHtml = t.tags.map(tag=>`<span class="tc-tag" style="background:${TAG_COLORS[tag]};">${tagLabel(tag)}</span>`).join('');
+    return `<div class="task-card show" data-tags="${t.tags.join(' ')}">
+      <div class="tc-kicker">${t.stage} &middot; ${t.year} &middot; ${t.strand}</div>
+      <h4>${t.title}</h4>
+      <div class="tc-tags">${tagsHtml}</div>
+      <div class="tc-section-label">Task</div>
+      <p style="margin-bottom:6px;">${t.desc}</p>
+      <div class="tc-section-label">Why it suits underachieving gifted students</div>
+      <p style="margin-bottom:0;">${t.why}</p>
+    </div>`;
+  }).join('');
+}
+
+function filterTasks(tag, btn){
+  document.querySelectorAll('#filterRow .filter-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.task-card').forEach(card=>{
+    const tags = card.getAttribute('data-tags').split(' ');
+    card.classList.toggle('show', tag==='all' || tags.includes(tag));
+  });
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('visible'));
+  const target = document.getElementById('page-'+id);
+  if(target) target.classList.add('visible');
+  document.querySelectorAll('nav.mainnav button').forEach(b=>b.classList.remove('active'));
+  const btn = document.querySelector('nav.mainnav button[data-page="'+id+'"]');
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+renderTasks();
+</script>
+</body>
+</html>
