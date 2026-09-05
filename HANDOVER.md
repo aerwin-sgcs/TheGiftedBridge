@@ -69,3 +69,28 @@ Files written to the repo folder via the remote-device bridge sometimes aren't p
 2. Enrichment task bank for every subject other than Science Stage 4/5 (History has one drafted sample card not yet added; everything else is untouched stub cards).
 3. "Help Students Learn" page — currently just an outbound link; could get its own original content.
 4. Anything the user raises next — check with them before assuming priority order.
+
+## Citation standards (applies to every reference on the site, retroactively enforced)
+
+- **Peer-reviewed journal articles, or books by reputable/established authors in the field, only.** No advocacy-org explainer pages (tasgifted.com and aaegt.net.au were removed for this reason), no undergraduate journals (a Wu 2016 ANU Undergraduate Research Journal article was removed), no secondary news coverage of a study when it's standing in for a primary source unless no free primary version exists at all.
+- **Articles preferred over systematic reviews.** Systematic reviews ask a busy teacher to wade through a synthesis of dozens of studies rather than get one clear finding — too much reading for the intended audience. Raoof et al. 2024 (Why Underachieve) and Rizzo, Pinnelli & Minnaert 2025 (Multi-Exceptional) were both removed for being systematic reviews, even though they were otherwise legitimate peer-reviewed sources. Applied retroactively — the user does not want one rule for some citations and another for others.
+- **Only 2018–2026 publication dates.**
+- **Free to access, no exceptions.** Every citation must be something a teacher can actually open and read in full — PMC, arXiv, MDPI, DOAJ-listed journals, or a directly-hosted free PDF (e.g. a university repository). A "Request PDF" ResearchGate link or a paywalled DOI landing page does not count, even if an abstract is visible. When no free version of an otherwise-relevant study exists, the citation is dropped rather than kept with an "abstract only" caveat — this was tried once and rejected by the user as still poor form.
+- **NZ sources are deliberately avoided** (Australian teachers trust them less) — this ruled out O'Brien, Riley & Holley-Boen (2016) on interprofessional practice teams (incl. counsellors) supporting gifted students with multiple exceptionalities, even though its topic was otherwise a strong fit for the planned counsellor tab (see pending item below).
+- Before adding any new citation, flag its quality tier to the user up front (peer-reviewed vs not, publisher reputation, systematic review vs primary study, NZ vs other) rather than waiting to be caught after the fact — this was a major, repeated friction point in an earlier session and must not recur.
+
+## Research folder
+
+`Research/` inside the repo holds PDFs of articles used as citations. As of this note it contains 8 PDFs; check it against the live citations in `index.html` before assuming an article is downloaded — historically some citations existed on the site without a matching PDF saved, and vice versa (one file, O'Brien 2016, is currently unused — see NZ-sources rule above for why).
+
+## Pending changes requested (not yet coded — list only, per user instruction)
+
+The user compiled this list to work through later. Do NOT code any of these until the user explicitly asks — this section is a record only.
+
+1. **Remove "Anchored on ..." badge everywhere.** The pill badge (e.g. "Anchored on Dabrowski", "Anchored on James T. Webb", "Anchored on Gagné's DMGT", "Anchored on Susan Baum") should not appear on any page. Applies site-wide, not just Social-Emotional.
+2. **Social-Emotional page — link out on overexcitabilities.** The "Overexcitabilities" concept card lists "psychomotor, sensual, intellectual, imaginational, and emotional" — add a link to more detail on these five types.
+3. **Social-Emotional page — empty space under "Asynchronous development."** There's blank space in that concept card that could be filled with another significant social-emotional aspect: "Imaginational and Intellectual Overexcitabilities."
+4. **Social-Emotional page — no teacher guidance.** The 4 concept cards (Overexcitabilities, Asynchronous development, Perfectionism, and whatever the 4th is) describe the phenomena but give no direction on what a teacher can actually do. Needs a "What can I as a teacher do to support ...?" link/section.
+5. **Behaviour page — same gap.** The 4 behaviour concept cards (Boredom-driven disruption, Misdiagnosis risk, Defiance as a control response, The passion connection) also need a "What can I as a teacher do to support ...?" link/section.
+6. **New tab: role of the counsellor.** A teacher shouldn't feel they're supporting multi-exceptional/gifted students entirely alone. Needs its own nav tab covering what a school counsellor can do to support both the teacher and the student — this would be a 10th nav item, so the two-row nav layout will need revisiting.
+7. **Reference summaries are too long.** Currently ~1000 characters each ("Read summary" toggles). User wants these reduced to roughly 500 characters going forward — likely applies to existing summaries too, confirm scope with user before changing.
