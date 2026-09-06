@@ -914,12 +914,12 @@
     <!-- TASK CARDS INSERTED HERE -->
   </div>
 
-  <h2 id="tasks-english" style="margin-top:50px; scroll-margin-top:170px;">English &mdash; Stage 4</h2>
+  <h2 id="tasks-english" style="margin-top:50px; scroll-margin-top:170px;">English &mdash; Stage 4 &amp; 5</h2>
   <div class="task-grid" id="taskGrid-english">
     <!-- TASK CARDS INSERTED HERE -->
   </div>
 
-  <h2 id="tasks-history" style="margin-top:50px; scroll-margin-top:170px;">History &mdash; Stage 4</h2>
+  <h2 id="tasks-history" style="margin-top:50px; scroll-margin-top:170px;">History &mdash; Stage 4 &amp; 5</h2>
   <div class="task-grid" id="taskGrid-history">
     <!-- TASK CARDS INSERTED HERE -->
   </div>
@@ -1058,10 +1058,40 @@ const SCIENCE_TASKS = [
 
 const ENGLISH_TASKS = [
   {
-    stage:'Stage 4', year:'Year 8', strand:'Understanding Text &amp; Perspective', title:'Rewrite the Villain',
+    stage:'Stage 4', year:'Year 8', strand:'Reading, Viewing &amp; Listening to Texts', title:'Same Story, Different Truth',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students are given two different retellings of the same story or real event &mdash; a film adaptation against its source text, or two conflicting news reports &mdash; and analyse exactly how specific techniques (word choice, structure, camera angle) shape a different version of "truth", then argue which version is more persuasive and why.',
+    why:'No summary will do &mdash; students have to trace cause and effect between technique and meaning, and defend a genuine comparative judgement rather than just describing what happens.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Understanding &amp; Responding to Texts', title:'The Critic\'s Panel',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students write a genuine critical review of a class text for a "prize shortlist" &mdash; going beyond "I liked/disliked it" into real textual analysis of technique and effect &mdash; then defend their review against a panel of peers who disagree.',
+    why:'The peer panel means a shallow opinion won\'t survive scrutiny; students have to back their response with evidence, not just assert it.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Expressing Ideas &amp; Composing Texts', title:'Rewrite the Villain',
     tags:['originality','risk-taking','elaboration'],
     desc:'Students take the antagonist from a class text and rewrite a pivotal scene entirely from that character\'s point of view &mdash; but every choice has to stay defensible against the actual text, not just invented sympathy.',
     why:'Harder than a standard analytical paragraph, not easier &mdash; the textual constraint forces real interpretive argument instead of surface-level comprehension.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Reading, Viewing &amp; Listening to Texts', title:'The Persuasion Autopsy',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students dissect a real persuasive speech or advertisement, identifying the specific rhetorical and multimodal techniques used to manipulate the audience &mdash; then design their own rubric and use it to rate how effective the persuasion actually is.',
+    why:'Designing the rubric themselves means there\'s no template to fill in; students have to decide what actually counts as persuasive and defend that judgement.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Understanding &amp; Responding to Texts', title:'Defend the Unpopular Reading',
+    tags:['complexity','risk-taking','originality'],
+    desc:'Students construct and defend an unconventional but textually-supported interpretation of a class text &mdash; one that goes against the "obvious" reading &mdash; using close textual evidence to make it survive cross-examination from peers who disagree.',
+    why:'Going against the obvious reading removes the option of restating what everyone already thinks; students must build and hold an original, evidenced position.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Expressing Ideas &amp; Composing Texts', title:'Write for the Real Audience',
+    tags:['originality','risk-taking','elaboration'],
+    desc:'Students identify a genuine real-world audience and purpose &mdash; a letter to a local MP, a submission to an actual competition, a script for a real podcast &mdash; and compose a text under the real constraints of that genre and audience, not a simulated school essay.',
+    why:'A real audience with real stakes replaces the "write for the teacher" default, forcing genuine choices about tone, structure and persuasion rather than following a formula.'
   }
 ];
 
@@ -1071,6 +1101,60 @@ const HISTORY_TASKS = [
     tags:['complexity','risk-taking','curiosity'],
     desc:'Students compare two or three conflicting primary-source accounts of the same historical event, then construct and defend their own account &mdash; explicitly justifying which sources they trust, why, and whose perspective is missing entirely.',
     why:'Rewards critical evaluation over recall, and there\'s no "correct" answer to copy &mdash; only a defensible one they have to argue for themselves.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7', strand:'The Ancient Past', title:'Trial of a Ruler',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students act as prosecution or defence in a mock trial of a specific ancient ruler, using primary sources (inscriptions, artefacts, ancient accounts) to build a historically defensible case &mdash; judged by a peer jury who can cross-examine the evidence presented.',
+    why:'A verdict has to survive cross-examination, so students must anchor every claim in actual source evidence rather than modern assumptions about "good" and "bad" rulers.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'The Medieval World', title:'The Chronicle War',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students compare two conflicting medieval chronicle accounts of the same event, written by authors with different loyalties, then produce a "meta-account" that explicitly identifies bias and gaps and argues what most likely actually happened.',
+    why:'There is no clean single source to trust, so students have to reason about reliability itself rather than just extracting facts.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'The Era of Colonisation', title:'Whose Frontier?',
+    tags:['complexity','risk-taking','curiosity'],
+    desc:'Students examine a specific frontier encounter using both Aboriginal and colonial-era primary sources, then construct an account that explicitly holds multiple perspectives at once, presenting to the class why a single narrative fails to capture what happened.',
+    why:'Forces students past a simple, one-sided retelling into genuinely weighing competing evidence and perspectives at the same time.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9', strand:'The Making of the Modern World', title:'Revolution Pitch',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students select a revolution or uprising from this period and pitch, to a skeptical panel, why it most fundamentally reshaped the modern world &mdash; defending their choice against classmates pitching rival revolutions, using historical evidence to outweigh competing claims.',
+    why:'A comparative, competitive pitch means students must weigh significance against rival evidence, not just describe one event in isolation.'
+  },
+  {
+    stage:'Stage 5', year:'Year 10', strand:'The Modern World', title:'The Turning Point Tribunal',
+    tags:['complexity','risk-taking','curiosity'],
+    desc:'Students argue for a single decisive turning point of the modern era, using primary and secondary evidence, and must defend their choice against a "tribunal" of peers arguing for other turning points &mdash; directly addressing the strongest counter-evidence raised against them.',
+    why:'The tribunal format means a superficial answer gets picked apart; students have to hold a position while genuinely engaging with what challenges it.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Mandatory Depth Study &mdash; Aboriginal Peoples\' Experiences of Colonisation', title:'The Land They Knew',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students examine primary and secondary sources on the impact of colonisation on a specific Aboriginal community or Nation, constructing a defensible account that centres Aboriginal perspectives, resistance and resilience &mdash; not just colonial records treating Aboriginal Peoples as passive subjects of someone else\'s history.',
+    why:'Requires actively seeking out and weighing whose voice is missing from the standard record, rather than accepting a single, comfortable version of events.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7', strand:'Elective Depth Study &mdash; Ancient Egypt', title:'Decode the Tomb',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Acting as archaeologists, students piece together evidence from a tomb assemblage &mdash; artefacts, hieroglyphic inscriptions, wall art &mdash; to construct a historically plausible account of the tomb owner\'s life, status and beliefs, explicitly labelling which parts of their account are solid evidence versus reasoned speculation.',
+    why:'Forcing the solid-evidence/speculation split stops students from presenting a guess as fact &mdash; genuine historical reasoning, not just an ancient-Egypt fact recount.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Case Study (methodology, any depth study)', title:'The Case File',
+    tags:['complexity','elaboration','curiosity'],
+    desc:'Within any depth study being taught, students choose one individual, event or decision and build an in-depth case file on it &mdash; cross-referencing multiple source types, addressing where sources disagree, and assessing which are more reliable and why &mdash; presented as a mini historian\'s case file rather than a summary.',
+    why:'A template that works with whatever depth study is being taught: the discipline of cross-referencing and judging reliability is the actual skill being built, not any one topic.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Site Study (methodology, any depth study)', title:'Read the Site',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students conduct a site study of a historical site relevant to their current depth study &mdash; in person or virtually &mdash; analysing what the physical or archaeological evidence at the site actually reveals versus what remains unknown, and proposing what additional evidence would strengthen historians\' understanding of it.',
+    why:'Physical evidence has real limits, and naming those limits honestly is a genuine historical skill &mdash; more demanding than simply reporting what a site "shows".'
   }
 ];
 

@@ -31,22 +31,28 @@ CSS custom properties (palette, from an RPB furniture supplier screenshot the us
 --teal-light:#E4F1F1  --border:#E4E0D4     --text-soft:#5B6472
 ```
 
-## Site structure (9 nav items, 8 page sections)
+## Site structure (10 nav items, 9 page sections)
 
-Top nav is split into two explicit rows (`.navrow` divs inside `nav.mainnav`, `flex-direction:column` on the nav, each row `flex-wrap:wrap; justify-content:flex-end`) — 6 items on row 1, 3 on row 2. This was a deliberate fix requested by the user because the old single flex-wrap nav wrapped unevenly.
+Top nav is split into two explicit rows (`.navrow` divs inside `nav.mainnav`, `flex-direction:column` on the nav, each row `flex-wrap:wrap; justify-content:flex-end`) — now 5+5 (rebalanced from the original 6+3 when the Counsellor tab was added).
 
-Row 1: Home · Foundations · Why Underachieve · Behaviour · Social-Emotional · Multi-Exceptional
-Row 2: Enrichment Tasks · Curated Links · Help Students Learn
+Row 1: Home · Foundations · Why Underachieve · Behaviour · Social-Emotional
+Row 2: Multi-Exceptional · Role of the Counsellor · Enrichment Tasks · Curated Links · Help Students Learn
 
 Pages (`<section class="page" id="page-...">`, shown/hidden via `showPage(id)` JS toggling a `.visible` class):
 
 - **Home** (`page-home`) — hero + "two doors" homepage pattern: Door 1 "I have a student in mind" (situation-first → Underachieve/Behaviour/SEL), Door 2 "I'm planning a lesson" (subject-first → Enrichment Tasks). Doors are cross-linked, not silos.
 - **Foundations** (`page-intro`) — 4 concept cards + Gagné DMGT anchor card + Williams Model anchor card (introduces the 8 Williams thinking/feeling processes: fluency, flexibility, originality, elaboration, risk-taking, complexity, curiosity, imagination — used as a flexible tagging system, not a rigid structure).
-- **Why Underachieve** (`page-underachieve`) — anchored on Gagné's DMGT (gifts vs talents; intrapersonal/environmental catalysts) as the primary framework, with supporting research (2018–2026) listed as citations, treated as equal-weight evidence (no single source, e.g. the Heliyon review, should be singled out by name while others are generic — all citations are named equally or not at all).
+- **Why Underachieve** (`page-underachieve`) — anchored on Gagné's DMGT (gifts vs talents; intrapersonal/environmental catalysts) as the primary framework, with supporting research (2018–2026) listed as citations, treated as equal-weight evidence (no single source, e.g. the Heliyon review, should be singled out by name while others are generic — all citations are named equally or not at all). Also has a "quick answer" taster section (`<h2>A quick answer: what this can look like in a lesson</h2>`) right after the Intrapersonal/Environmental factors concept-grid — a 2-card static preview grid (Science's "The Unreliable Recipe" + English's "Rewrite the Villain") linking through to the full Enrichment Task Bank. This exists because the user was explicit that teachers need a quick, scroll-free answer, not another page to click through — a foundational design principle for the whole site, not just this section.
 - **Behaviour** (`page-behaviour`) — anchored on James T. Webb (misdiagnosis, boredom-driven disruption). 4 concept cards including "The passion connection" (recently added: behaviour that looks like defiance often eases once a student has a genuine passion area to go deep on — not a reward for good behaviour, but often the missing piece that reconnects effort with purpose).
 - **Social-Emotional** (`page-sel`) — anchored on Dabrowski (overexcitabilities, asynchronous development, perfectionism).
-- **Multi-Exceptional** (`page-multiexceptional`) — anchored on Susan Baum's Talent Centered Model (6 elements), covering masking effects (giftedness masks difficulty / difficulty masks giftedness / mutual cancellation) causing under-identification. Research citations include Reis/Baum/Burke 2014 and Baum's Dual Differentiation. Avoids citations whose title names a specific country (reads as too narrowly local for an Australian audience) — this is not a blanket avoidance of any particular country's research.
-- **Enrichment Tasks** (`page-tasks`) — the task bank. Fully built out for **Science, Stage 4 & 5** (12 tasks in the `SCIENCE_TASKS` array in the `<script>` block) with filter pills tagged by Williams process. All other subjects (Maths, English, Geography, History, PDHPE, Technology, Music, Art, and all Stage 6 courses) are "coming soon" stub cards in `stub-grid` — **not yet built**. A sample History task card was drafted in conversation but not yet added to the live task bank.
+- **Multi-Exceptional** (`page-multiexceptional`) — anchored on Susan Baum's Talent Centered Model (6 elements), covering masking effects (giftedness masks difficulty / difficulty masks giftedness / mutual cancellation) causing under-identification. Research citations include Reis/Baum/Burke 2014 (Baum's Dual Differentiation was removed — paywalled, no free replacement found). Avoids citations whose title names a specific country (reads as too narrowly local for an Australian audience) — this is not a blanket avoidance of any particular country's research.
+- **Role of the Counsellor** (`page-counsellor`) — new page (kicker colour `--navy`). 4 concept cards (identification, one-on-one support, family bridge, early involvement). Cites Renzulli & Austermann (2025) and O'Brien, Riley & Holley-Boen (2017, a deliberate acknowledged exception to the 2018+ date rule — see Citation standards). Crosslinks back to Multi-Exceptional, Social-Emotional, Behaviour.
+- **Enrichment Tasks** (`page-tasks`) — the task bank, now restructured to support multiple subjects. H1: "Stage 4 & 5 enrichment tasks, by subject." A sticky "Jump to:" pill-row (`position:sticky; top:97px`) links to `#tasks-science` / `#tasks-english` / `#tasks-history` / `#tasks-other` so switching subjects never requires scrolling. Each subject has its own `<h2 id="tasks-{subject}">` + `<div class="task-grid" id="taskGrid-{subject}">`, filled by a shared `renderTaskGrid(tasks, gridId)` JS helper (called once per subject from `renderTasks()`).
+  - **Science, Stage 4 & 5** — fully built, 12 tasks (`SCIENCE_TASKS`).
+  - **English, Stage 4 & 5** — fully built, 6 tasks (`ENGLISH_TASKS`): one card per NESA English K-10 (2022 syllabus) focus area (Reading, viewing and listening to texts; Understanding and responding to texts; Expressing ideas and composing texts) per stage. Note: English's real syllabus structure has no fixed named units — focus areas are shared across Stage 4 & 5, confirmed via research on the actual 2022 syllabus rather than assumed.
+  - **History, Stage 4 & 5** — fully built, 10 tasks (`HISTORY_TASKS`): 3 cards by historical context for Stage 4 (the ancient past, the medieval world, the era of colonisation) + 2 for Stage 5 (the making of the modern world, the modern world), plus 4 more Stage 4 cards added later — the mandatory depth study (Aboriginal Peoples' experiences of colonisation), one elective depth study option (Ancient Egypt), a case study card, and a site study card (both methodology-based, usable with any depth study). Confirmed against the actual NESA History 7-10 (2024 syllabus) structure via research, not assumed.
+  - **All other subjects** (Maths, Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses) remain "coming soon" stub cards in the "Other subjects" stub-grid — **not yet built**.
+  - **Filter mechanism note:** `filterTasks(tag, btn)` must stay scoped to `#page-tasks .task-card` (not a bare `.task-card` selector) and null-guard the `data-tags` read — static preview/"taster" cards elsewhere on the site (see Why Underachieve below) also carry class `task-card` but have no `data-tags`, and would silently break global filtering otherwise.
   - **Task card content template** (validated, reuse this exactly): Title, Stage/Year, Topic/Strand, Task description, Williams processes tagged, Why it suits underachievers.
   - Core distinction taught on this page: **enrichment ≠ extension**. Enrichment = different in kind, deeper/open-ended. Extension = more of the same, harder/faster.
 - **Curated Links** (`page-links`) — currently just a "coming soon" stub. **Not yet built.** When it is: both external links and internal cross-references count, format is an annotated list explaining why each link is useful, and it's meant to be an open, growing bookmark list (not a fixed curated set).
@@ -60,15 +66,19 @@ Files written to the repo folder via the remote-device bridge sometimes aren't p
 
 - The user is a K–12 Australian teacher working to a real deadline (originally ~2 weeks from early in this project; check current date against that).
 - The user wants **direct, concise, non-defensive** responses. Avoid repeated apologies, avoid lengthy technical explanations of infrastructure issues, avoid hedging language that reads as blame-shifting.
+- **"Don't make decisions on your own" — standing rule, explicitly stated by the user.** Do not fill gaps with unrequested assumptions, do not substitute an adjacent idea (e.g. a note from this document) for what the user actually just wrote, do not build ahead of a specific confirmed answer, and do not restate the user's own already-given information back to them as if newly discovered. When a request is ambiguous, ask the specific narrow question and wait for the answer before acting — do not infer scope from a broad or general-sounding reply to a different question. This came out of repeated, increasingly forceful correction in-session and applies to all future work here.
 - Verify visual/layout changes with a Playwright screenshot (`executable_path='/opt/pw-browsers/chromium'`) before delivering — the user has been shown screenshots of proposed changes (like the two-line nav) and this has worked well.
 - Deliverable flow for any site update: edit `index.html` in the cloud workspace → screenshot-verify if it's a visual change → `SendUserFile` → `device_commit_files` straight to `~/Desktop/2026 CLAUDE ACCESS/Teachers Gifted/TheGiftedBridge/index.html` → tell the user it's ready for them to push via GitHub Desktop. Nothing more.
 
 ## Backlog (not yet done)
 
-1. Curated Links page — still a stub.
-2. Enrichment task bank for every subject other than Science Stage 4/5 (History has one drafted sample card not yet added; everything else is untouched stub cards).
+1. Curated Links page — still a stub. Paused by the user (as of this note) pending a decision on scope — see note below.
+2. Enrichment task bank for subjects beyond Science/English/History: Maths, Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses are still untouched stub cards.
 3. "Help Students Learn" page — currently just an outbound link; could get its own original content.
-4. Anything the user raises next — check with them before assuming priority order.
+4. Renzulli & Austermann (2025) PDF is not yet in `Research/` — the user is sourcing it themselves and will add it.
+5. Anything the user raises next — check with them before assuming priority order.
+
+**Curated Links scope note:** the user originally floated "annotated links per subject, explaining what each resource is and why it's useful" but then clarified this was too large/general a scope and asked to scale down to a handful of general gifted-education resources instead. Confirm current intent with the user before resuming — don't assume the original larger scope.
 
 ## Citation standards (applies to every reference on the site, retroactively enforced)
 
@@ -81,7 +91,7 @@ Files written to the repo folder via the remote-device bridge sometimes aren't p
 
 ## Research folder
 
-`Research/` inside the repo holds PDFs of articles used as citations. As of this note it contains 8 PDFs; check it against the live citations in `index.html` before assuming an article is downloaded — historically some citations existed on the site without a matching PDF saved, and vice versa (one file, O'Brien 2016, is currently unused — flagged above as possibly worth reconsidering now that the locality rule has been corrected).
+`Research/` inside the repo holds PDFs of articles used as citations. As of this note it contains 16 PDFs; check it against the live citations in `index.html` before assuming an article is downloaded — historically some citations existed on the site without a matching PDF saved, and vice versa. The Guilbault 2025 PDF was deleted (undownloadable, unused). O'Brien 2016/2017 is now in active use, cited on the Counsellor page.
 
 ## Pending changes (status as of this session)
 
