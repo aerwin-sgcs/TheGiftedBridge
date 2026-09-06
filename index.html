@@ -884,10 +884,10 @@
 <!-- ============ ENRICHMENT TASKS ============ -->
 <section class="page" id="page-tasks">
   <div class="kicker" style="color:var(--teal);">Enrichment Task Bank</div>
-  <h1>Science &mdash; Stage 4 &amp; 5</h1>
+  <h1>Stage 4 &amp; 5 enrichment tasks, by subject</h1>
   <p class="lede">Enrichment, not extension: tasks that go deeper and wider, not just more of the
     same. Every card is tagged with the Williams Model process(es) it draws on &mdash; filter to
-    find the kind of thinking you want to stretch.</p>
+    find the kind of thinking you want to stretch, across every subject below.</p>
 
   <div class="filter-row" id="filterRow">
     <button class="filter-pill active" onclick="filterTasks('all', this)">All</button>
@@ -901,15 +901,24 @@
     <button class="filter-pill" onclick="filterTasks('imagination', this)">Imagination</button>
   </div>
 
-  <div class="task-grid" id="taskGrid">
+  <h2>Science &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-science">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 style="margin-top:50px;">English &mdash; Stage 4</h2>
+  <div class="task-grid" id="taskGrid-english">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 style="margin-top:50px;">History &mdash; Stage 4</h2>
+  <div class="task-grid" id="taskGrid-history">
     <!-- TASK CARDS INSERTED HERE -->
   </div>
 
   <h2 style="margin-top:50px;">Other subjects</h2>
   <div class="stub-grid">
-    <div class="stub"><b>History</b><span>Sample card drafted &mdash; bank coming soon</span></div>
     <div class="stub"><b>Mathematics</b><span>Coming soon</span></div>
-    <div class="stub"><b>English</b><span>Coming soon</span></div>
     <div class="stub"><b>Geography</b><span>Coming soon</span></div>
     <div class="stub"><b>PDHPE</b><span>Coming soon</span></div>
     <div class="stub"><b>Technology</b><span>Coming soon</span></div>
@@ -1039,9 +1048,28 @@ const SCIENCE_TASKS = [
   }
 ];
 
-function renderTasks(){
-  const grid = document.getElementById('taskGrid');
-  grid.innerHTML = SCIENCE_TASKS.map(t=>{
+const ENGLISH_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Understanding Text &amp; Perspective', title:'Rewrite the Villain',
+    tags:['originality','risk-taking','elaboration'],
+    desc:'Students take the antagonist from a class text and rewrite a pivotal scene entirely from that character\'s point of view &mdash; but every choice has to stay defensible against the actual text, not just invented sympathy.',
+    why:'Harder than a standard analytical paragraph, not easier &mdash; the textual constraint forces real interpretive argument instead of surface-level comprehension.'
+  }
+];
+
+const HISTORY_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Historical Investigation &amp; Interpretation', title:'Who Gets to Write History?',
+    tags:['complexity','risk-taking','curiosity'],
+    desc:'Students compare two or three conflicting primary-source accounts of the same historical event, then construct and defend their own account &mdash; explicitly justifying which sources they trust, why, and whose perspective is missing entirely.',
+    why:'Rewards critical evaluation over recall, and there\'s no "correct" answer to copy &mdash; only a defensible one they have to argue for themselves.'
+  }
+];
+
+function renderTaskGrid(tasks, gridId){
+  const grid = document.getElementById(gridId);
+  if(!grid) return;
+  grid.innerHTML = tasks.map(t=>{
     const tagsHtml = t.tags.map(tag=>`<span class="tc-tag" style="background:${TAG_COLORS[tag]};">${tagLabel(tag)}</span>`).join('');
     return `<div class="task-card show" data-tags="${t.tags.join(' ')}">
       <div class="tc-kicker">${t.stage} &middot; ${t.year} &middot; ${t.strand}</div>
@@ -1055,11 +1083,17 @@ function renderTasks(){
   }).join('');
 }
 
+function renderTasks(){
+  renderTaskGrid(SCIENCE_TASKS, 'taskGrid-science');
+  renderTaskGrid(ENGLISH_TASKS, 'taskGrid-english');
+  renderTaskGrid(HISTORY_TASKS, 'taskGrid-history');
+}
+
 function filterTasks(tag, btn){
   document.querySelectorAll('#filterRow .filter-pill').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.task-card').forEach(card=>{
-    const tags = card.getAttribute('data-tags').split(' ');
+  document.querySelectorAll('#page-tasks .task-card').forEach(card=>{
+    const tags = (card.getAttribute('data-tags') || '').split(' ');
     card.classList.toggle('show', tag==='all' || tags.includes(tag));
   });
 }
