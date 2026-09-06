@@ -107,6 +107,21 @@
     margin:6px 0 0; font-size:0.85em; color:var(--text-soft); max-width:640px;
   }
 
+  /* ---------- Generic info/guidance toggle (visible label) ---------- */
+  details.info-toggle{ margin:12px 0 0; }
+  details.info-toggle summary{
+    cursor:pointer; color:var(--teal); font-weight:700; font-size:0.88em;
+    list-style:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  details.info-toggle summary::-webkit-details-marker{ display:none; }
+  details.info-toggle summary::before{ content:"\25B8"; font-size:0.8em; }
+  details.info-toggle[open] summary::before{ content:"\25BE"; }
+  details.info-toggle .info-body{
+    margin-top:8px; font-size:0.9em; color:var(--text-soft);
+  }
+  details.info-toggle .info-body ul{ margin:6px 0 0; padding-left:20px; }
+  details.info-toggle .info-body li{ margin-bottom:6px; }
+
   /* ---------- Home / two doors ---------- */
   .hero{ text-align:center; padding:28px 0 8px; }
   .hero h1{ font-size:2.4rem; }
@@ -140,13 +155,6 @@
   .quicklink .ql-tag{ font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
   .quicklink h4{ margin:0 0 4px; font-size:1rem; color:var(--navy); }
   .quicklink span{ font-size:.85rem; color:var(--text-soft); }
-
-  /* ---------- Framework badge ---------- */
-  .anchor-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--teal-light); color:var(--teal); border-radius:999px;
-    padding:6px 14px; font-size:.82rem; font-weight:700; margin-bottom:18px;
-  }
 
   /* ---------- Concept grid (definitions) ---------- */
   .concept-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:20px 0; }
@@ -221,9 +229,10 @@
         <button data-page="underachieve" onclick="showPage('underachieve')">Why Underachieve</button>
         <button data-page="behaviour" onclick="showPage('behaviour')">Behaviour</button>
         <button data-page="sel" onclick="showPage('sel')">Social-Emotional</button>
-        <button data-page="multiexceptional" onclick="showPage('multiexceptional')">Multi-Exceptional</button>
       </div>
       <div class="navrow">
+        <button data-page="multiexceptional" onclick="showPage('multiexceptional')">Multi-Exceptional</button>
+        <button data-page="counsellor" onclick="showPage('counsellor')">Role of the Counsellor</button>
         <button data-page="tasks" onclick="showPage('tasks')">Enrichment Tasks</button>
         <button data-page="links" onclick="showPage('links')">Curated Links</button>
         <button data-page="helpstudent" onclick="showPage('helpstudent')">Help Students Learn</button>
@@ -385,7 +394,6 @@
 <!-- ============ WHY UNDERACHIEVE ============ -->
 <section class="page" id="page-underachieve">
   <div class="kicker" style="color:var(--royal);">Why Students Underachieve</div>
-  <div class="anchor-badge" style="background:#E9EDF7; color:var(--royal);">Anchored on Gagn&eacute;'s DMGT</div>
   <h1>Why does a gifted student underachieve?</h1>
   <p class="lede">Underachievement isn't one thing &mdash; it's what happens when the pathway from
     ability to achievement gets blocked. Gagn&eacute;'s DMGT gives us two places to look: inside
@@ -436,7 +444,6 @@
 <!-- ============ BEHAVIOUR ============ -->
 <section class="page" id="page-behaviour">
   <div class="kicker" style="color:var(--deepred);">Behaviour</div>
-  <div class="anchor-badge" style="background:#FBEAEA; color:var(--deepred);">Anchored on James T. Webb</div>
   <h1>When underachievement looks like misbehaviour</h1>
   <p class="lede">Boredom, frustration and a mismatch between ability and task can look a lot like
     defiance, inattention, or disengagement &mdash; and gifted students are frequently
@@ -447,18 +454,44 @@
       <h3>Boredom-driven disruption</h3>
       <p>Under-challenged students may act out, daydream, or disengage &mdash; not because they
         can't do the work, but because there's nothing in it that requires their attention.</p>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Build in scope to go deeper rather than just faster: open-ended extension questions,
+            choice in how a task is completed, or an early finish that leads into their own inquiry
+            rather than more of the same worksheet. The goal isn't more work &mdash; it's more
+            interesting work.</p>
+        </div>
+      </details>
     </div>
     <div class="concept-card" style="border-top:5px solid var(--deepred);">
       <h3>Misdiagnosis risk</h3>
       <p>James T. Webb's work highlights how traits common in gifted students &mdash; intensity,
         argumentativeness, inattention to uninteresting tasks &mdash; can be mistaken for ADHD,
         ODD, or other conditions, sometimes obscuring the real issue: unmet need.</p>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Before assuming ADHD or ODD, check whether the behaviour is strongly task-dependent
+            &mdash; showing up mainly around unchallenging or repetitive work points toward unmet
+            need rather than a standing disorder. Loop in the school counsellor or learning support
+            team so giftedness is considered alongside any formal assessment, not after it.</p>
+        </div>
+      </details>
     </div>
     <div class="concept-card" style="border-top:5px solid var(--deepred);">
       <h3>Defiance as a control response</h3>
       <p>When a student has no meaningful say in their work, refusal can become one of the only
         forms of control available to them &mdash; connecting straight back to student voice
         and choice.</p>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Offer small, genuine choices in how &mdash; not whether &mdash; work gets done: order
+            of tasks, format of a response, who they work with. A student who has some real say in
+            their work has less need to make refusal the only form of control available to them.</p>
+        </div>
+      </details>
     </div>
     <div class="concept-card" style="border-top:5px solid var(--deepred);">
       <h3>The passion connection</h3>
@@ -552,7 +585,6 @@
 <!-- ============ SOCIAL-EMOTIONAL ============ -->
 <section class="page" id="page-sel">
   <div class="kicker" style="color:var(--magenta);">Social-Emotional</div>
-  <div class="anchor-badge" style="background:#FBEAEF; color:var(--magenta);">Anchored on Dabrowski</div>
   <h1>The inner experience of being gifted</h1>
   <p class="lede">Many gifted students feel things &mdash; and think about things &mdash; more
     intensely than their peers. Kazimierz Dabrowski's theory gives language to that intensity.</p>
@@ -564,17 +596,70 @@
         intellectual, imaginational, and emotional. A student with strong emotional or
         intellectual overexcitability may feel everyday events far more intensely than peers &mdash;
         which can look like "overreacting" but is a genuine difference in intensity.</p>
+      <details class="info-toggle">
+        <summary>See what each type looks like in the classroom</summary>
+        <div class="info-body">
+          <ul>
+            <li><strong>Psychomotor</strong> &mdash; a surplus of energy: rapid talking, fidgeting,
+              restlessness, a drive to always be doing something. Easily mistaken for hyperactivity.</li>
+            <li><strong>Sensual</strong> &mdash; heightened pleasure or discomfort from sensory input
+              (texture, taste, sound, light) and a strong aesthetic response to art, music or language.</li>
+            <li><strong>Intellectual</strong> &mdash; an intense drive to know, question and analyse:
+              sustained curiosity, love of theory and problem-solving, sharp and probing observation.</li>
+            <li><strong>Imaginational</strong> &mdash; a vivid inner world: inventive thinking, dramatic
+              play, rich imagery &mdash; which can also mean vivid fears or trouble staying anchored in
+              the present task.</li>
+            <li><strong>Emotional</strong> &mdash; feelings experienced at high intensity: deep empathy,
+              strong attachments, and an acute sense of right and wrong.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Name the intensity for what it is rather than reading it as overreacting or poor
+            self-control, and give it somewhere to go: movement breaks for psychomotor energy, a
+            quieter or texture-friendly space for sensual sensitivity, open-ended questions for
+            intellectual curiosity, creative outlets for imaginational energy, and a safe way to
+            name big feelings for emotional intensity.</p>
+        </div>
+      </details>
     </div>
     <div class="concept-card" style="border-top:5px solid var(--magenta);">
       <h3>Asynchronous development</h3>
       <p>A student can be years ahead cognitively while being entirely age-typical &mdash; or even
         behind &mdash; socially and emotionally. That gap is often invisible to adults who only
         see the academic side, and it can be a major source of friction and isolation.</p>
+      <p style="margin-top:10px;">Imaginational and intellectual overexcitability are often the two
+        most visible drivers of this gap: a student can be racing years ahead in ideas and abstract
+        reasoning while still needing the same social-emotional scaffolding as any other child their
+        age. The mismatch between a precociously theoretical mind and an age-typical capacity to
+        regulate or communicate that intensity is exactly what makes asynchronous development so
+        easy to miss when a teacher only sees strong academic output.</p>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Resist collapsing a student into one age or stage. Pair advanced content in their
+            strength areas with age-typical expectations socially and emotionally, rather than
+            assuming a student who reasons like an older peer will also cope like one &mdash;
+            flexible groupings that separate academic pace from social activities respect both
+            sides of the gap at once.</p>
+        </div>
+      </details>
     </div>
     <div class="concept-card" style="border-top:5px solid var(--magenta);">
       <h3>Perfectionism</h3>
       <p>When a student has rarely had to try, failure feels catastrophic rather than normal.
         Avoidance of starting a task can be safer than risking an imperfect result.</p>
+      <details class="info-toggle">
+        <summary>What can I do to support this?</summary>
+        <div class="info-body">
+          <p>Praise effort, strategy and process rather than outcome or innate talent, so a mistake
+            reads as information rather than a verdict on who they are. Model your own visible
+            struggle with a problem, and build in low-stakes chances to attempt, fail safely, and
+            revise before anything is marked or shared.</p>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -603,7 +688,6 @@
 <!-- ============ MULTI-EXCEPTIONAL ============ -->
 <section class="page" id="page-multiexceptional">
   <div class="kicker" style="color:var(--olive);">Multi-Exceptional</div>
-  <div class="anchor-badge" style="background:#F2F5E4; color:var(--olive);">Anchored on Susan Baum</div>
   <h1>When giftedness and a learning difficulty co-occur</h1>
   <p class="lede">A student can be gifted <em>and</em> have a diagnosed learning difficulty, such as
     dyslexia, ADHD, or autism, at the same time. These students &mdash; once called
@@ -698,6 +782,64 @@
 
   <a class="crosslink" href="#" onclick="showPage('behaviour'); return false;">See how this connects to behaviour &rarr;</a>
   <a class="crosslink" href="#" onclick="showPage('underachieve'); return false;" style="margin-left:10px;">Back to why students underachieve &rarr;</a>
+</section>
+
+<!-- ============ ROLE OF THE COUNSELLOR ============ -->
+<section class="page" id="page-counsellor">
+  <div class="kicker" style="color:var(--navy);">Role of the Counsellor</div>
+  <h1>You don't have to do this alone</h1>
+  <p class="lede">Supporting a multi-exceptional or underachieving gifted student can feel like a
+    solo job from the classroom &mdash; but a school counsellor is often the single best-placed
+    person to help carry it, for both you and the student.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:5px solid var(--navy);">
+      <h3>A second set of eyes on identification</h3>
+      <p>A counsellor can help distinguish giftedness-driven behaviour from a genuine
+        mental-health or developmental concern, and can advocate for formal identification when a
+        student's profile doesn't fit the usual pattern &mdash; especially for multi-exceptional
+        students who are routinely missed by standard screening.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--navy);">
+      <h3>One-on-one, not just group, support</h3>
+      <p>For twice- and multi-exceptional students especially, individual counselling tends to
+        work better than group programs &mdash; role-playing tricky social situations, teaching
+        executive-functioning skills, and building confidence through targeted, one-on-one work
+        rather than a generic group session.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--navy);">
+      <h3>A bridge between you, the student and home</h3>
+      <p>Ongoing communication with families &mdash; particularly from early high school onward
+        &mdash; and a shared conversation about subject choices, options and what "ready" actually
+        looks like for this specific student, rather than leaving that coordination to the
+        classroom teacher alone.</p>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--navy);">
+      <h3>Someone to loop in early, not last</h3>
+      <p>Bringing a counsellor in alongside any formal assessment, not only after a crisis, means
+        giftedness and any co-occurring need can be considered together from the start &mdash; not
+        addressed one after the other once something has already gone wrong.</p>
+    </div>
+  </div>
+
+  <h2>What the research says</h2>
+  <div class="card">
+    <p>Direct research on the counsellor's specific role with gifted and multi-exceptional
+      students is still a developing area &mdash; this section will grow as more free,
+      peer-reviewed studies are found.</p>
+    <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
+      <li><a href="https://journals.sagepub.com/doi/10.1177/2156759X251359290" target="_blank" rel="noopener">School Counselors&rsquo; Practices that Enable Academically Talented High School Students with Autism Spectrum Disorder to Achieve &mdash; Renzulli &amp; Austermann (2025)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>Renzulli and Austermann (2025) interviewed ten high school counsellors about their work with academically gifted students who also have autism. Three practices stood out: individualised counselling (course recommendations matched to genuine interest, encouragement into meaningful extracurriculars), social-emotional support (role-playing difficult social scenarios, executive-functioning coaching, positive affirmations), and active, ongoing collaboration with parents from ninth grade onward. Counsellors were clear that one-on-one work outperforms group interventions for this population.</p></details>
+      </li>
+      <li><a href="https://kairaranga.ac.nz/index.php/k/article/download/213/202/497" target="_blank" rel="noopener">How Do Interprofessional Practice Teams Work Together to Identify and Provide for Gifted Students with Multiple Exceptionalities? &mdash; O&rsquo;Brien, Riley &amp; Holley-Boen (2017)</a>
+        <details class="ref-summary"><summary><span>Read summary</span></summary><p>O&rsquo;Brien, Riley and Holley-Boen studied seven interprofessional teams supporting gifted students with multiple exceptionalities, and found real gaps: limited shared understanding of these students&rsquo; needs, unclear ownership of who&rsquo;s responsible, and patchy communication &mdash; three of the seven teams never met as a group at all. They recommend structured, regular meetings and treating students and families as full team members, not just subjects of discussion.</p></details>
+      </li>
+    </ul>
+  </div>
+
+  <a class="crosslink" href="#" onclick="showPage('multiexceptional'); return false;">Back to Multi-Exceptional &rarr;</a>
+  <a class="crosslink" href="#" onclick="showPage('sel'); return false;" style="margin-left:10px;">See the Social-Emotional page &rarr;</a>
+  <a class="crosslink" href="#" onclick="showPage('behaviour'); return false;" style="margin-left:10px;">See the Behaviour page &rarr;</a>
 </section>
 
 <!-- ============ ENRICHMENT TASKS ============ -->
