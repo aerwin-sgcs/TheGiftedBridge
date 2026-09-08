@@ -896,6 +896,7 @@
     <a href="#tasks-science" class="filter-pill" style="text-decoration:none; display:inline-block;">Science</a>
     <a href="#tasks-english" class="filter-pill" style="text-decoration:none; display:inline-block;">English</a>
     <a href="#tasks-history" class="filter-pill" style="text-decoration:none; display:inline-block;">History</a>
+    <a href="#tasks-geography" class="filter-pill" style="text-decoration:none; display:inline-block;">Geography</a>
     <a href="#tasks-other" class="filter-pill" style="text-decoration:none; display:inline-block;">Other subjects</a>
   </div>
 
@@ -931,9 +932,13 @@
     <!-- TASK CARDS INSERTED HERE -->
   </div>
 
+  <h2 id="tasks-geography" style="margin-top:50px; scroll-margin-top:170px;">Geography &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-geography">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
   <h2 id="tasks-other" style="margin-top:50px; scroll-margin-top:170px;">Other subjects</h2>
   <div class="stub-grid">
-    <div class="stub"><b>Geography</b><span>Coming soon</span></div>
     <div class="stub"><b>PDHPE</b><span>Coming soon</span></div>
     <div class="stub"><b>Technology</b><span>Coming soon</span></div>
     <div class="stub"><b>Music</b><span>Coming soon</span></div>
@@ -1276,6 +1281,57 @@ const HISTORY_TASKS = [
   }
 ];
 
+const GEOGRAPHY_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Landscapes and Landforms', title:'The Landform on Trial',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students investigate the geomorphic processes behind a real, named landform under threat (a retreating coastline, a karst cave system, a river delta), then build an evidence-based case for how it should be managed and defend it against a competing land-use proposal from a classmate.',
+    why:'A land-use decision only survives if the physical-process evidence actually supports it, so students can\'t settle for a surface description of "how the landform formed".'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Liveability of Places', title:'Design the Liveability Index',
+    tags:['originality','complexity','curiosity'],
+    desc:'Students critique an existing liveability ranking, identifying what it fails to measure or whose experience it leaves out, then design and weight their own liveability index and apply it to two contrasting places, arguing why their index measures liveability more fairly.',
+    why:'Building the measuring tool itself, not just applying someone else\'s, forces students to defend what "liveable" actually means rather than accepting a ready-made ranking.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Water in the World', title:'The Water Security Brief',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students investigate a real water scarcity or security case study and draft a policy brief for a fictional government minister, weighing competing demands &mdash; agriculture, urban supply, environmental flows &mdash; and defending their recommended trade-offs with hydrological evidence.',
+    why:'There is no cost-free option, so students have to own the consequences of their recommendation rather than list "solutions" with no downside.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Interconnections and Trade', title:'Trace the Supply Chain',
+    tags:['complexity','curiosity','risk-taking'],
+    desc:'Students trace the full global supply chain of a single everyday product, mapping every place and process it passes through, then argue &mdash; using evidence from their own trace &mdash; whether that chain\'s interconnections are, on balance, a net benefit or a net cost to the places involved.',
+    why:'The trace has to be genuinely followed end to end before students can argue about it, so the judgement is built on their own evidence rather than a pre-formed opinion about globalisation.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Biomes and Sustainable Agriculture', title:'Feed the Biome',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students investigate a specific biome under agricultural pressure and design a food-production plan that stays within its environmental limits, then defend the plan\'s trade-offs to a stakeholder panel of farmers, conservationists and government representatives.',
+    why:'A plan defended live to conflicting stakeholders can\'t hide behind vague good intentions &mdash; every trade-off has to be justified with evidence.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Changing Places', title:'The Gentrification Verdict',
+    tags:['complexity','curiosity','risk-taking'],
+    desc:'Students examine real data on a place undergoing rapid change &mdash; population, investment, migration &mdash; and argue whether that change counts as improvement or loss for the people who already lived there, explicitly identifying whose experience the data leaves out.',
+    why:'Naming who is missing from the data is a genuinely harder task than summarising the data itself, and prevents a comfortable, one-sided verdict.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Environmental Change and Management', title:'The Environmental Tribunal',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students investigate a real environmental change case study and propose a management response, then defend it in front of a peer tribunal who challenge the supporting evidence and argue for alternative responses of their own.',
+    why:'A response has to hold up under direct challenge, so students must anticipate and answer the strongest counter-evidence rather than present a single untested plan.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Human Wellbeing', title:'Beyond GDP',
+    tags:['originality','complexity','curiosity'],
+    desc:'Students critique GDP as a measure of wellbeing, then build their own composite wellbeing indicator and use it to compare two countries or regions, arguing what real story about people\'s lives GDP alone would have missed.',
+    why:'Constructing an alternative measure, not just criticising the old one, requires students to decide and defend what actually counts as wellbeing.'
+  }
+];
+
 function renderTaskGrid(tasks, gridId){
   const grid = document.getElementById(gridId);
   if(!grid) return;
@@ -1298,6 +1354,7 @@ function renderTasks(){
   renderTaskGrid(SCIENCE_TASKS, 'taskGrid-science');
   renderTaskGrid(ENGLISH_TASKS, 'taskGrid-english');
   renderTaskGrid(HISTORY_TASKS, 'taskGrid-history');
+  renderTaskGrid(GEOGRAPHY_TASKS, 'taskGrid-geography');
 }
 
 function filterTasks(tag, btn){
