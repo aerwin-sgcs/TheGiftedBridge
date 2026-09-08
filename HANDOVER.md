@@ -31,12 +31,12 @@ CSS custom properties (palette, from an RPB furniture supplier screenshot the us
 --teal-light:#E4F1F1  --border:#E4E0D4     --text-soft:#5B6472
 ```
 
-## Site structure (10 nav items, 9 page sections)
+## Site structure (11 nav items, 11 page sections)
 
-Top nav is split into two explicit rows (`.navrow` divs inside `nav.mainnav`, `flex-direction:column` on the nav, each row `flex-wrap:wrap; justify-content:flex-end`) — now 5+5 (rebalanced from the original 6+3 when the Counsellor tab was added).
+Top nav is split into two explicit rows (`.navrow` divs inside `nav.mainnav`, `flex-direction:column` on the nav, each row `flex-wrap:wrap; justify-content:flex-end`) — now 6+5 (rebalanced from 5+5 when the "Classroom Strategies" tab was added).
 
-Row 1: Home · Foundations · Why Underachieve · Behaviour · Social-Emotional
-Row 2: 2e+ · Role of the Counsellor · Enrichment Tasks · Curated Links · Help Students Learn
+Row 1: Home · Foundations · Why Underachieve · Behaviour · Social-Emotional · 2e+
+Row 2: Role of the Counsellor · Classroom Strategies · Enrichment Tasks · Curated Links · Help Students Learn
 
 Pages (`<section class="page" id="page-...">`, shown/hidden via `showPage(id)` JS toggling a `.visible` class):
 
@@ -47,11 +47,13 @@ Pages (`<section class="page" id="page-...">`, shown/hidden via `showPage(id)` J
 - **Social-Emotional** (`page-sel`) — anchored on Dabrowski (overexcitabilities, asynchronous development, perfectionism).
 - **2e+** (`page-multiexceptional`) — anchored on Susan Baum's Talent Centered Model (6 elements), covering masking effects (giftedness masks difficulty / difficulty masks giftedness / mutual cancellation) causing under-identification. Research citations include Reis/Baum/Burke 2014 (Baum's Dual Differentiation was removed — paywalled, no free replacement found). Avoids citations whose title names a specific country (reads as too narrowly local for an Australian audience) — this is not a blanket avoidance of any particular country's research.
 - **Role of the Counsellor** (`page-counsellor`) — new page (kicker colour `--navy`). 4 concept cards (identification, one-on-one support, family bridge, early involvement). Cites Renzulli & Austermann (2025) and O'Brien, Riley & Holley-Boen (2017, a deliberate acknowledged exception to the 2018+ date rule — see Citation standards). Crosslinks back to 2e+, Social-Emotional, Behaviour.
-- **Enrichment Tasks** (`page-tasks`) — the task bank, now restructured to support multiple subjects. H1: "Stage 4 & 5 enrichment tasks, by subject." A sticky "Jump to:" pill-row (`position:sticky; top:97px`) links to `#tasks-science` / `#tasks-english` / `#tasks-history` / `#tasks-other` so switching subjects never requires scrolling. Each subject has its own `<h2 id="tasks-{subject}">` + `<div class="task-grid" id="taskGrid-{subject}">`, filled by a shared `renderTaskGrid(tasks, gridId)` JS helper (called once per subject from `renderTasks()`).
+- **Classroom Strategies** (`page-strategies`, kicker colour `--navy`) — new index page gathering all 6 of the site's "What can I do to support this?" strategy toggles (3 from Behaviour, 3 from Social-Emotional) into one scannable list, each shown as a short card (category tag, title, one-line summary) with a "See full guidance →" link. Built because the strategies existed but were buried a click deep on two separate pages with no way to see them all at once. **Does not duplicate or remove the original toggles** — those stay exactly where they are on Behaviour/SEL; this page just links to them via a `goToStrategy(page, anchorId)` JS helper that calls `showPage()` then scrolls to an anchor id added directly on each original concept-card (`id="strategy-{page}-{name}"`, e.g. `strategy-behaviour-boredom`). If a 7th strategy toggle is ever added anywhere on the site, add a matching card + anchor here too, or this page will silently fall out of sync.
+- **Enrichment Tasks** (`page-tasks`) — the task bank, now restructured to support multiple subjects. H1: "Stage 4 & 5 enrichment tasks, by subject." A sticky "Jump to:" pill-row (`position:sticky; top:97px`) links to `#tasks-maths` / `#tasks-science` / `#tasks-english` / `#tasks-history` / `#tasks-other` so switching subjects never requires scrolling. Each subject has its own `<h2 id="tasks-{subject}">` + `<div class="task-grid" id="taskGrid-{subject}">`, filled by a shared `renderTaskGrid(tasks, gridId)` JS helper (called once per subject from `renderTasks()`).
+  - **Maths, Stage 4 & 5** — fully built, 9 tasks (`MATHS_TASKS`): one card per NESA Mathematics K-10 (2022 syllabus) Stage 4/5 Core focus area (Number and finance, Algebra and equations, Ratios and rates, Pythagoras and trigonometry, Length/area/volume, Geometrical properties and figures, Linear and non-linear relationships, Data classification and analysis, Probability). Confirmed against the actual 2022 syllabus's Core–Paths structure via research, not assumed; only Core focus areas were used, not the more advanced Paths topics.
   - **Science, Stage 4 & 5** — fully built, 12 tasks (`SCIENCE_TASKS`).
   - **English, Stage 4 & 5** — fully built, 6 tasks (`ENGLISH_TASKS`): one card per NESA English K-10 (2022 syllabus) focus area (Reading, viewing and listening to texts; Understanding and responding to texts; Expressing ideas and composing texts) per stage. Note: English's real syllabus structure has no fixed named units — focus areas are shared across Stage 4 & 5, confirmed via research on the actual 2022 syllabus rather than assumed.
   - **History, Stage 4 & 5** — fully built, 10 tasks (`HISTORY_TASKS`): 3 cards by historical context for Stage 4 (the ancient past, the medieval world, the era of colonisation) + 2 for Stage 5 (the making of the modern world, the modern world), plus 4 more Stage 4 cards added later — the mandatory depth study (Aboriginal Peoples' experiences of colonisation), one elective depth study option (Ancient Egypt), a case study card, and a site study card (both methodology-based, usable with any depth study). Confirmed against the actual NESA History 7-10 (2024 syllabus) structure via research, not assumed.
-  - **All other subjects** (Maths, Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses) remain "coming soon" stub cards in the "Other subjects" stub-grid — **not yet built**.
+  - **All other subjects** (Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses) remain "coming soon" stub cards in the "Other subjects" stub-grid — **not yet built**.
   - **Filter mechanism note:** `filterTasks(tag, btn)` must stay scoped to `#page-tasks .task-card` (not a bare `.task-card` selector) and null-guard the `data-tags` read — static preview/"taster" cards elsewhere on the site (see Why Underachieve below) also carry class `task-card` but have no `data-tags`, and would silently break global filtering otherwise.
   - **Task card content template** (validated, reuse this exactly): Title, Stage/Year, Topic/Strand, Task description, Williams processes tagged, Why it suits underachievers.
   - Core distinction taught on this page: **enrichment ≠ extension**. Enrichment = different in kind, deeper/open-ended. Extension = more of the same, harder/faster.
@@ -73,7 +75,7 @@ Files written to the repo folder via the remote-device bridge sometimes aren't p
 ## Backlog (not yet done)
 
 1. Curated Links page — still a stub. Paused by the user (as of this note) pending a decision on scope — see note below.
-2. Enrichment task bank for subjects beyond Science/English/History: Maths, Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses are still untouched stub cards.
+2. Enrichment task bank for subjects beyond Maths/Science/English/History: Geography, PDHPE, Technology, Music, Art, and all Stage 6 courses are still untouched stub cards.
 3. "Help Students Learn" page — currently just an outbound link; could get its own original content.
 4. Renzulli & Austermann (2025) PDF is not yet in `Research/` — the user is sourcing it themselves and will add it.
 5. Anything the user raises next — check with them before assuming priority order.

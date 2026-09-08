@@ -892,6 +892,7 @@
 
   <div class="filter-row" style="margin-bottom:8px; position:sticky; top:97px; z-index:40; background:var(--cream); padding:8px 0;">
     <b style="font-size:.82rem; color:var(--text-soft); align-self:center;">Jump to:</b>
+    <a href="#tasks-maths" class="filter-pill" style="text-decoration:none; display:inline-block;">Maths</a>
     <a href="#tasks-science" class="filter-pill" style="text-decoration:none; display:inline-block;">Science</a>
     <a href="#tasks-english" class="filter-pill" style="text-decoration:none; display:inline-block;">English</a>
     <a href="#tasks-history" class="filter-pill" style="text-decoration:none; display:inline-block;">History</a>
@@ -910,7 +911,12 @@
     <button class="filter-pill" onclick="filterTasks('imagination', this)">Imagination</button>
   </div>
 
-  <h2 id="tasks-science" style="scroll-margin-top:170px;">Science &mdash; Stage 4 &amp; 5</h2>
+  <h2 id="tasks-maths" style="scroll-margin-top:170px;">Maths &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-maths">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-science" style="margin-top:50px; scroll-margin-top:170px;">Science &mdash; Stage 4 &amp; 5</h2>
   <div class="task-grid" id="taskGrid-science">
     <!-- TASK CARDS INSERTED HERE -->
   </div>
@@ -927,7 +933,6 @@
 
   <h2 id="tasks-other" style="margin-top:50px; scroll-margin-top:170px;">Other subjects</h2>
   <div class="stub-grid">
-    <div class="stub"><b>Mathematics</b><span>Coming soon</span></div>
     <div class="stub"><b>Geography</b><span>Coming soon</span></div>
     <div class="stub"><b>PDHPE</b><span>Coming soon</span></div>
     <div class="stub"><b>Technology</b><span>Coming soon</span></div>
@@ -1036,6 +1041,63 @@ const TAG_COLORS = {
 function tagLabel(t){
   return t.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join('-');
 }
+
+const MATHS_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7', strand:'Number and algebra &mdash; Number and finance', title:'Break the Bank',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students take over the finances of a fictional small business heading toward collapse &mdash; irregular income, mounting debts, and a savings goal that looks impossible. Using percentages, budgeting and financial calculations, they propose a rescue plan and pitch it to "the board," justifying every trade-off.',
+    why:'Real financial stakes reward sound judgement, not just correct arithmetic &mdash; there is no single right rescue plan to find.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Number and algebra &mdash; Algebra and equations', title:'The Impossible Equation',
+    tags:['originality','curiosity','flexibility'],
+    desc:'Students reverse-engineer a real-world "trick" &mdash; a rigged game, a number puzzle, a mind-reading trick &mdash; by building the algebraic equation that explains why it always works. They then design their own version of the trick for a classmate to crack.',
+    why:'Requires generating an equation to explain a mystery, not just solving one that&rsquo;s handed to them &mdash; open enough for genuinely original tricks.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Number and algebra &mdash; Ratios and rates', title:'Scale It or Fail It',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Given a recipe or product formula designed for a small batch, students must scale it up for a large event &mdash; but real constraints (ingredient availability, container sizes, cost per unit) mean simple scaling breaks down. They find and justify a workable compromise using rates and ratios.',
+    why:'A messy, constrained real-world context means simple scaling doesn&rsquo;t work, forcing genuine mathematical judgement rather than one clean calculation.'
+  },
+  {
+    stage:'Stage 4&ndash;5', year:'Year 8&ndash;9', strand:'Measurement and space &mdash; Pythagoras and trigonometry', title:"The Shortest Path Isn't a Line",
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Given an oddly shaped space with obstacles (a multi-level building, a park, a warehouse), students calculate the true shortest walkable route using Pythagoras and trigonometry, compare it to the theoretical straight-line distance, and explain the gap to a "client" planning accessible access.',
+    why:'Connects an abstract theorem to a genuinely obstructed real space, requiring justification and interpretation, not just a formula plug-in.'
+  },
+  {
+    stage:'Stage 4', year:'Year 8', strand:'Measurement and space &mdash; Length, area and volume', title:'Design for an Impossible Budget',
+    tags:['originality','risk-taking','flexibility'],
+    desc:'Using a fixed amount of material (cardboard, fabric, foil), students design a container or structure that maximises usable volume or space. They test multiple nets and shapes, then justify the trade-off they chose between efficiency and practicality.',
+    why:'An open design problem rewards experimenting with several shapes rather than correctly applying one volume formula once.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Measurement and space &mdash; Geometrical properties and figures', title:'Prove It Without a Protractor',
+    tags:['complexity','risk-taking','fluency'],
+    desc:'Given a geometric claim about a shape&rsquo;s angles or properties, students construct a logical proof using geometric properties alone &mdash; no measuring allowed &mdash; then try to break a classmate&rsquo;s proof by hunting for an edge case it doesn&rsquo;t cover.',
+    why:'Shifts the task from measuring to reasoning, matching many underachieving gifted students&rsquo; preference for logical rigour over rote procedure.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9', strand:'Number and algebra &mdash; Linear and non-linear relationships', title:'Model the Mess',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Given messy real data that doesn&rsquo;t cleanly fit one pattern (a viral trend, a population count, a game&rsquo;s high-score history), students choose and justify whether a linear, quadratic or exponential model fits best &mdash; then defend their choice against a rival group&rsquo;s competing model.',
+    why:'Real, messy data resists one correct answer, forcing an argued mathematical case rather than plugging numbers into a known formula.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9', strand:'Statistics and probability &mdash; Data classification and analysis', title:'Lying with Statistics, on Purpose',
+    tags:['originality','risk-taking','curiosity'],
+    desc:'Students are given a genuine dataset and must deliberately build a misleading graph or statistic to support a clearly false claim &mdash; then explain exactly how they manipulated it. They swap datasets with another group and try to catch the manipulation.',
+    why:'Turns critical statistical literacy into an active, slightly subversive task rather than passive interpretation &mdash; a natural fit for a sceptical mind.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Statistics and probability &mdash; Probability', title:"Rig the Game (Then Prove It's Rigged)",
+    tags:['originality','risk-taking','complexity'],
+    desc:'Students design a game of chance that looks fair but is subtly weighted in the "house&rsquo;s" favour, calculate the true probabilities and expected value, then challenge another group to detect the rig using their own probability calculations.',
+    why:'Turns probability into a tool for strategic design and detection, not just calculating the odds of a single event.'
+  }
+];
 
 const SCIENCE_TASKS = [
   {
@@ -1232,6 +1294,7 @@ function renderTaskGrid(tasks, gridId){
 }
 
 function renderTasks(){
+  renderTaskGrid(MATHS_TASKS, 'taskGrid-maths');
   renderTaskGrid(SCIENCE_TASKS, 'taskGrid-science');
   renderTaskGrid(ENGLISH_TASKS, 'taskGrid-english');
   renderTaskGrid(HISTORY_TASKS, 'taskGrid-history');
