@@ -173,6 +173,14 @@
   }
   .crosslink:hover{ text-decoration:none; opacity:.85; }
 
+  /* ---------- Prominent CTA button ---------- */
+  .cta-button{
+    display:inline-block; margin-top:18px; font-size:1.05rem; font-weight:800;
+    background:var(--teal); color:var(--white); padding:16px 28px; border-radius:12px;
+    box-shadow:0 6px 16px rgba(27,110,117,0.35); transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta-button:hover{ text-decoration:none; transform:translateY(-2px); box-shadow:0 10px 22px rgba(27,110,117,0.45); }
+
   /* ---------- Task bank ---------- */
   .filter-row{ display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px; }
   .filter-pill{
@@ -454,7 +462,7 @@
         comprehension.</p>
     </div>
   </div>
-  <p style="margin-top:12px;"><a href="#" onclick="showPage('tasks'); return false;">See the full Enrichment Task Bank for more like this &rarr;</a></p>
+  <p style="margin-top:12px;"><a class="cta-button" href="#" onclick="showPage('tasks'); return false;">See the full Enrichment Task Bank for more like this &rarr;</a></p>
 
   <h2>What the research says</h2>
   <div class="card">
@@ -897,6 +905,12 @@
     <a href="#tasks-english" class="filter-pill" style="text-decoration:none; display:inline-block;">English</a>
     <a href="#tasks-history" class="filter-pill" style="text-decoration:none; display:inline-block;">History</a>
     <a href="#tasks-geography" class="filter-pill" style="text-decoration:none; display:inline-block;">Geography</a>
+    <a href="#tasks-music" class="filter-pill" style="text-decoration:none; display:inline-block;">Music</a>
+    <a href="#tasks-pdhpe" class="filter-pill" style="text-decoration:none; display:inline-block;">PDHPE</a>
+    <a href="#tasks-technology" class="filter-pill" style="text-decoration:none; display:inline-block;">Technology</a>
+    <a href="#tasks-computing" class="filter-pill" style="text-decoration:none; display:inline-block;">Computing Technology</a>
+    <a href="#tasks-industrial" class="filter-pill" style="text-decoration:none; display:inline-block;">Industrial Technology</a>
+    <a href="#tasks-art" class="filter-pill" style="text-decoration:none; display:inline-block;">Art</a>
     <a href="#tasks-other" class="filter-pill" style="text-decoration:none; display:inline-block;">Other subjects</a>
   </div>
 
@@ -937,12 +951,40 @@
     <!-- TASK CARDS INSERTED HERE -->
   </div>
 
+  <h2 id="tasks-music" style="margin-top:50px; scroll-margin-top:170px;">Music &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-music">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-pdhpe" style="margin-top:50px; scroll-margin-top:170px;">PDHPE &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-pdhpe">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-technology" style="margin-top:50px; scroll-margin-top:170px;">Technology &mdash; Stage 4</h2>
+  <p class="lede" style="margin-top:-6px; font-size:.92rem;">Technology is a mandatory Years 7&ndash;8 course only &mdash; at Stage 5 it splits into separate elective subjects, two of which are covered below.</p>
+  <div class="task-grid" id="taskGrid-technology">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-computing" style="margin-top:50px; scroll-margin-top:170px;">Computing Technology &mdash; Stage 5 elective</h2>
+  <div class="task-grid" id="taskGrid-computing">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-industrial" style="margin-top:50px; scroll-margin-top:170px;">Industrial Technology (Timber) &mdash; Stage 5 elective</h2>
+  <p class="lede" style="margin-top:-6px; font-size:.92rem;">Industrial Technology is taught as one chosen specialisation per school; these tasks cover Timber.</p>
+  <div class="task-grid" id="taskGrid-industrial">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
+  <h2 id="tasks-art" style="margin-top:50px; scroll-margin-top:170px;">Art (Visual Arts) &mdash; Stage 4 &amp; 5</h2>
+  <div class="task-grid" id="taskGrid-art">
+    <!-- TASK CARDS INSERTED HERE -->
+  </div>
+
   <h2 id="tasks-other" style="margin-top:50px; scroll-margin-top:170px;">Other subjects</h2>
   <div class="stub-grid">
-    <div class="stub"><b>PDHPE</b><span>Coming soon</span></div>
-    <div class="stub"><b>Technology</b><span>Coming soon</span></div>
-    <div class="stub"><b>Music</b><span>Coming soon</span></div>
-    <div class="stub"><b>Art</b><span>Coming soon</span></div>
     <div class="stub"><b>Stage 6 courses</b><span>Coming soon</span></div>
   </div>
 </section>
@@ -1332,6 +1374,216 @@ const GEOGRAPHY_TASKS = [
   }
 ];
 
+const MUSIC_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Performing', title:'The Interpretation Standoff',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students learn the same piece two different ways &mdash; technically faithful to the score, and a defensible creative reinterpretation &mdash; perform both to the class, then argue which interpretation better serves the composer\'s intent, backed by specific musical evidence in dynamics, tempo and phrasing.',
+    why:'A defensible interpretive choice requires real command of the score, not just the ability to play the notes correctly.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Listening', title:'Blind Genre Trial',
+    tags:['complexity','curiosity','risk-taking'],
+    desc:'Given an unfamiliar piece of music stripped of any title or context, students build a defensible case for its genre, era and cultural origin using only what they can hear &mdash; instrumentation, structure, rhythm, harmony &mdash; then compare their case against the real answer and account for any gap.',
+    why:'There\'s no way to look up the answer, so students have to reason from musical evidence alone rather than recall a fact.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Composing', title:'Compose Under Constraint',
+    tags:['originality','complexity','fluency'],
+    desc:'Students are given a single, deliberately awkward compositional constraint &mdash; a five-beat bar, one instrument only, a scale with a note removed &mdash; and must compose a genuinely musical short piece that makes the constraint sound intentional rather than limiting.',
+    why:'A tight constraint removes the safety of a generic answer, so real creative problem-solving is the only way through.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Performing', title:'The Arranger\'s Brief',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students take an existing piece written for a different ensemble and re-arrange it for their own available instruments, defending every arrangement decision &mdash; register changes, doubled parts, cut material &mdash; against what the original would gain or lose.',
+    why:'Every arrangement choice has an audible trade-off, so students must justify decisions rather than simply reproduce the original.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Listening', title:'The Cultural Appropriation Case',
+    tags:['complexity','curiosity','risk-taking'],
+    desc:'Students investigate a real case of a musical style being borrowed or adapted across cultures &mdash; a genre crossing from its community of origin into mainstream use &mdash; and build an evidence-based argument for where that borrowing sits between homage and appropriation.',
+    why:'There is no comfortable single answer, which suits students who disengage from tasks with one expected response.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Composing', title:'Score the Unscored Moment',
+    tags:['originality','elaboration','complexity'],
+    desc:'Students compose original underscore music for a wordless scene &mdash; a short film clip, a piece of choreography, a real historical photograph &mdash; and must defend every compositional choice as a deliberate emotional or narrative decision, not a default.',
+    why:'Requiring a defence for each choice stops students from settling for the first idea that comes to mind.'
+  }
+];
+
+const PDHPE_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Movement Skills and Strategies', title:'Coach the Counter',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students analyse footage of a real sporting contest, identify the tactical pattern that lets one side consistently dominate, then design a drill that specifically counters it and teach it live to a partner, adjusting the drill on the spot based on what actually fails.',
+    why:'Teaching the drill live means the idea has to survive contact with a real, unpredictable partner, not just sound convincing on paper.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Health and Wellbeing through Physical Activity', title:'The Fitness Myth Audit',
+    tags:['curiosity','complexity','elaboration'],
+    desc:'Students pick a popular fitness claim circulating online &mdash; a viral workout, a supplement claim, a "science-backed" routine &mdash; investigate the physiological evidence for and against it, then build a myth-busting case using their own tracked data (heart rate, effort) alongside the research.',
+    why:'Testing the myth on themselves as well as in the literature stops students from simply declaring an opinion they already held.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Safe, Active and Healthy Lifestyle Choices', title:'Risk Redesign',
+    tags:['complexity','risk-taking','originality'],
+    desc:'Students choose a real recreational activity often judged either "too risky" or "not risky enough", then design an evidence-based risk-management redesign that keeps the genuine challenge intact while addressing its specific hazards, defending every change they make.',
+    why:'Preserving the challenge while managing the risk is a harder, more defensible task than simply banning the danger.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Respectful Relationships', title:'The Bystander Script',
+    tags:['complexity','elaboration','imagination'],
+    desc:'Given a realistic scenario involving disrespect or exclusion, students write and perform two contrasting bystander responses &mdash; one that escalates the situation, one that de-escalates it &mdash; then use relationship research to explain exactly why the de-escalating response works.',
+    why:'Performing both responses forces genuine perspective-taking, rather than reciting the response they already know is "correct".'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Identity, Belonging and Change', title:'Map My Belonging',
+    tags:['curiosity','complexity','elaboration'],
+    desc:'Students map the real (not idealised) communities and groups they belong to, identify a point where two of those identities conflict during the move into high school, then present one strategy they have genuinely used &mdash; not a textbook one &mdash; to manage that conflict.',
+    why:'Requiring a strategy they have actually used keeps the task personally real instead of a generic, tidy answer.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Movement Skills and Strategies', title:'Reverse-Engineer the Elite Play',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students break down footage of an elite-level tactical play in a sport of their choice &mdash; biomechanically and strategically &mdash; then adapt a scaled-down version that a much less skilled team could actually execute, testing it and refining it based on what transfers and what doesn\'t.',
+    why:'Scaling a genuinely elite tactic down to something teachable exposes exactly which parts of the skill were doing the real work.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Health and Wellbeing through Physical Activity', title:'The Program Design Challenge',
+    tags:['complexity','elaboration','risk-taking'],
+    desc:'Students design a full training or wellbeing program for a real person with a specific, non-generic goal &mdash; someone recovering from injury, managing a chronic condition, or peaking for an event &mdash; justifying every choice against physiological principles, then defend the program to a "client" who pushes back.',
+    why:'Defending the plan against real pushback stops students from listing generic advice they haven\'t actually thought through.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Safe, Active and Healthy Lifestyle Choices', title:'The Policy Pitch',
+    tags:['complexity','curiosity','risk-taking'],
+    desc:'Students investigate a real public health issue affecting their age group &mdash; vaping, sleep deprivation, extreme dieting trends &mdash; and pitch an original school or community-level policy response, defending it against the strongest counter-argument a panel can raise.',
+    why:'A policy has to survive a live challenge, so students must anticipate objections rather than present a single untested idea.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Respectful Relationships', title:'The Breakdown Analysis',
+    tags:['complexity','elaboration','curiosity'],
+    desc:'Using a de-identified, realistic relationship-conflict scenario, students identify the exact point where communication broke down and build an evidence-based explanation &mdash; drawing on relationship research &mdash; of what should have happened differently at that decision point.',
+    why:'Pinpointing the exact decision point, not just describing the conflict, demands a level of analysis a summary can\'t fake.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Identity, Belonging and Change', title:'The Identity Under Pressure Interview',
+    tags:['curiosity','complexity','elaboration'],
+    desc:'With consent, students interview someone who navigated a major identity change or belonging challenge &mdash; migration, a significant cultural transition, a major life change &mdash; then connect their lived account to identity-development theory without reducing their story to a generic case study.',
+    why:'Holding a real person\'s account and an abstract theory together, without flattening one into the other, is a genuinely advanced synthesis task.'
+  }
+];
+
+const TECHNOLOGY_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Digital and Communication Technologies', title:'Design the Misinformation Filter',
+    tags:['complexity','originality','curiosity'],
+    desc:'Students research how a real online platform\'s algorithm decides what content to surface, then design an alternative content-ranking rule that would surface more reliable information, testing it against real example posts and defending every trade-off &mdash; including between reach and reliability.',
+    why:'Designing the rule, not just criticising the platform, forces students to own the trade-offs a real system has to make.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Engineering Technologies and Systems', title:'The Constraint-Built Machine',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students design and build a simple mechanical or control system to solve a real, deliberately constrained problem &mdash; move an object without touching it, using only recycled materials &mdash; iterating through failed builds and documenting exactly why each one failed.',
+    why:'Documenting the specific reason each build failed produces real engineering reasoning, not just a working final model.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Food and Agricultural Practices', title:'The Food System Redesign',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students trace one common food item from paddock to plate, identify the point in that system with the biggest environmental or ethical cost, then design and physically test an alternative practice that reduces that cost without ruining the product.',
+    why:'The redesign has to actually survive a real cooking or production trial, not just look good as a proposal.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Materials and Production Processes', title:'Fail It on Purpose',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students select a material property &mdash; tensile strength, flexibility &mdash; and deliberately design a product to fail under a specific, predicted stress, physically test it to confirm it fails as expected, then redesign and retest one part to withstand that stress.',
+    why:'Predicting a failure correctly is a harder, more testable claim than just building something that happens to work.'
+  }
+];
+
+const COMPUTING_TECH_TASKS = [
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Enterprise Systems &mdash; Analysing Data', title:'The Dataset That Lies',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students find or are given a real dataset that supports a popular claim, then demonstrate exactly how it could mislead &mdash; a hidden variable, a skewed sample, a misleading visualisation &mdash; before presenting a corrected analysis and an honest version of the chart.',
+    why:'Finding the specific flaw is far harder than accepting or rejecting the claim, and can\'t be done without real statistical reasoning.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Enterprise Systems &mdash; Designing for User Experience', title:'Redesign for the User You\'re Not',
+    tags:['complexity','originality','elaboration'],
+    desc:'Students choose an app or website and redesign a key part of its interface specifically for a user very different from themselves &mdash; someone with low vision, a much older or younger user, someone with limited data access &mdash; testing the redesign with a real person from that group and revising based on their feedback.',
+    why:'Designing for someone genuinely unlike yourself, then having them test it, removes the option of designing for your own convenience.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Software Development &mdash; Creating Games and Simulations', title:'Simulate the Real Rule',
+    tags:['complexity','curiosity','elaboration'],
+    desc:'Students build a simple simulation or game modelling a real system with competing incentives &mdash; traffic, an ecosystem, a market &mdash; then use their own simulation\'s output to argue something true about how that real system actually behaves.',
+    why:'The argument has to come from what their own simulation produced, not from a fact they already knew going in.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Software Development &mdash; Developing Apps and Web Software', title:'Build the App No One Asked For (But Should Have)',
+    tags:['originality','complexity','risk-taking'],
+    desc:'Students identify a genuine, specific problem in their own school or community that no existing app solves well, design and build a working version of it, then user-test it with the actual people who would use it and revise it based on what breaks.',
+    why:'Testing with real intended users, not classmates being polite, is what actually exposes a design\'s weak assumptions.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Software Development &mdash; Mechatronic and Automated Systems', title:'Automate the Annoying Task',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Students identify a small, repetitive real-world task and design a sensor- and logic-driven system to automate it, building and testing a working model and documenting every failure mode they had to engineer around.',
+    why:'Every failure mode they had to solve is evidence of real engineering thought that a finished, working demo alone would hide.'
+  }
+];
+
+const INDUSTRIAL_TECH_TASKS = [
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Timber &mdash; Core Module', title:'The Reverse-Engineered Joint',
+    tags:['complexity','risk-taking','elaboration'],
+    desc:'Given an existing, well-made timber joint (a dovetail, a mortise and tenon) but no instructions, students work out the sequence of cuts and tools required to produce it, attempt to reproduce it, then document exactly where their sequence assumption was wrong and why.',
+    why:'Documenting the wrong assumption, not just the final result, is where the real understanding of the joint shows up.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Timber &mdash; Specialised Module', title:'Design for the Constraint, Not Around It',
+    tags:['complexity','originality','risk-taking'],
+    desc:'Students design and construct a timber piece that must satisfy a genuinely awkward brief constraint &mdash; a fixed, unusually small piece of reclaimed timber, or a structural requirement that fights the grain direction &mdash; defending every design decision against the constraint rather than working around it.',
+    why:'A design that works with an awkward constraint, rather than avoiding it, demonstrates far more skill than a clean, unconstrained brief.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Timber &mdash; Specialised Module', title:'The Tradesperson\'s Critique',
+    tags:['complexity','elaboration','curiosity'],
+    desc:'Students evaluate their own completed project against real trade-quality standards &mdash; using industry documentation or an interview with a tradesperson &mdash; identifying specific points where their work would or wouldn\'t meet a professional benchmark, then redo one identified weak point.',
+    why:'Judging their own work against an external, professional standard is a much higher bar than self-assessing against the marking rubric alone.'
+  }
+];
+
+const ART_TASKS = [
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Art Making', title:'The Deliberate Style Theft',
+    tags:['originality','complexity','risk-taking'],
+    desc:'Students select a specific, identifiable artist\'s style and deliberately imitate it to create an original artwork on a subject that artist never addressed, then annotate exactly which stylistic choices they borrowed and which they had to invent because the artist\'s style didn\'t cover this new subject.',
+    why:'Naming precisely where the borrowed style runs out is a far more advanced skill than a loose, general imitation.'
+  },
+  {
+    stage:'Stage 4', year:'Year 7&ndash;8', strand:'Art Critical and Historical Studies', title:'Curate the Uncomfortable Exhibition',
+    tags:['curiosity','complexity','elaboration'],
+    desc:'Students select three real artworks that are difficult, confronting, or often skipped over in class, then write curatorial text arguing why each deserves gallery space &mdash; engaging directly with the specific controversy or discomfort rather than avoiding it.',
+    why:'Engaging with the actual controversy, rather than working around it, is what separates real critical writing from a safe summary.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Art Making', title:'The Body of Work Under Constraint',
+    tags:['complexity','originality','elaboration'],
+    desc:'Students produce a small connected body of work (three to four pieces) exploring one personal concept, under a single deliberately restrictive material or process constraint that must recur across every piece, then justify how the constraint shaped &mdash; rather than limited &mdash; the concept\'s development.',
+    why:'Arguing that a constraint improved the work, with evidence across multiple pieces, demands real reflective control over their own practice.'
+  },
+  {
+    stage:'Stage 5', year:'Year 9&ndash;10', strand:'Art Critical and Historical Studies', title:'Argue the Unfashionable Position',
+    tags:['complexity','risk-taking','curiosity'],
+    desc:'Students research a real critical debate about an artist or movement\'s significance &mdash; overrated versus underrated, appropriative versus innovative &mdash; and construct a defensible argument for the less popular position, using primary source evidence rather than secondary opinion.',
+    why:'Defending the unpopular side of a real debate, using primary evidence, prevents students from just repeating the consensus view.'
+  }
+];
+
 function renderTaskGrid(tasks, gridId){
   const grid = document.getElementById(gridId);
   if(!grid) return;
@@ -1355,6 +1607,12 @@ function renderTasks(){
   renderTaskGrid(ENGLISH_TASKS, 'taskGrid-english');
   renderTaskGrid(HISTORY_TASKS, 'taskGrid-history');
   renderTaskGrid(GEOGRAPHY_TASKS, 'taskGrid-geography');
+  renderTaskGrid(MUSIC_TASKS, 'taskGrid-music');
+  renderTaskGrid(PDHPE_TASKS, 'taskGrid-pdhpe');
+  renderTaskGrid(TECHNOLOGY_TASKS, 'taskGrid-technology');
+  renderTaskGrid(COMPUTING_TECH_TASKS, 'taskGrid-computing');
+  renderTaskGrid(INDUSTRIAL_TECH_TASKS, 'taskGrid-industrial');
+  renderTaskGrid(ART_TASKS, 'taskGrid-art');
 }
 
 function filterTasks(tag, btn){
