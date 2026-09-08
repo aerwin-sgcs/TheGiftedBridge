@@ -229,10 +229,11 @@
         <button data-page="underachieve" onclick="showPage('underachieve')">Why Underachieve</button>
         <button data-page="behaviour" onclick="showPage('behaviour')">Behaviour</button>
         <button data-page="sel" onclick="showPage('sel')">Social-Emotional</button>
+        <button data-page="multiexceptional" onclick="showPage('multiexceptional')">2e+</button>
       </div>
       <div class="navrow">
-        <button data-page="multiexceptional" onclick="showPage('multiexceptional')">2e+</button>
         <button data-page="counsellor" onclick="showPage('counsellor')">Role of the Counsellor</button>
+        <button data-page="strategies" onclick="showPage('strategies')">Classroom Strategies</button>
         <button data-page="tasks" onclick="showPage('tasks')">Enrichment Tasks</button>
         <button data-page="links" onclick="showPage('links')">Curated Links</button>
         <button data-page="helpstudent" onclick="showPage('helpstudent')">Help Students Learn</button>
@@ -489,7 +490,7 @@
     misread, or even misdiagnosed, as a result.</p>
 
   <div class="concept-grid">
-    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+    <div class="concept-card" id="strategy-behaviour-boredom" style="border-top:5px solid var(--deepred); scroll-margin-top:110px;">
       <h3>Boredom-driven disruption</h3>
       <p>Under-challenged students may act out, daydream, or disengage &mdash; not because they
         can't do the work, but because there's nothing in it that requires their attention.</p>
@@ -503,7 +504,7 @@
         </div>
       </details>
     </div>
-    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+    <div class="concept-card" id="strategy-behaviour-misdiagnosis" style="border-top:5px solid var(--deepred); scroll-margin-top:110px;">
       <h3>Misdiagnosis risk</h3>
       <p>James T. Webb's work highlights how traits common in gifted students &mdash; intensity,
         argumentativeness, inattention to uninteresting tasks &mdash; can be mistaken for ADHD,
@@ -518,7 +519,7 @@
         </div>
       </details>
     </div>
-    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+    <div class="concept-card" id="strategy-behaviour-defiance" style="border-top:5px solid var(--deepred); scroll-margin-top:110px;">
       <h3>Defiance as a control response</h3>
       <p>When a student has no meaningful say in their work, refusal can become one of the only
         forms of control available to them &mdash; connecting straight back to student voice
@@ -629,7 +630,7 @@
     intensely than their peers. Kazimierz Dabrowski's theory gives language to that intensity.</p>
 
   <div class="concept-grid">
-    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+    <div class="concept-card" id="strategy-sel-overexcitabilities" style="border-top:5px solid var(--magenta); scroll-margin-top:110px;">
       <h3>Overexcitabilities</h3>
       <p>Dabrowski described five heightened modes of response: psychomotor, sensual,
         intellectual, imaginational, and emotional. A student with strong emotional or
@@ -664,7 +665,7 @@
         </div>
       </details>
     </div>
-    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+    <div class="concept-card" id="strategy-sel-asynchronous" style="border-top:5px solid var(--magenta); scroll-margin-top:110px;">
       <h3>Asynchronous development</h3>
       <p>A student can be years ahead cognitively while being entirely age-typical &mdash; or even
         behind &mdash; socially and emotionally. That gap is often invisible to adults who only
@@ -686,7 +687,7 @@
         </div>
       </details>
     </div>
-    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+    <div class="concept-card" id="strategy-sel-perfectionism" style="border-top:5px solid var(--magenta); scroll-margin-top:110px;">
       <h3>Perfectionism</h3>
       <p>When a student has rarely had to try, failure feels catastrophic rather than normal.
         Avoidance of starting a task can be safer than risking an imperfect result.</p>
@@ -965,6 +966,61 @@
   </div>
 </section>
 
+<!-- ============ CLASSROOM STRATEGIES (INDEX) ============ -->
+<section class="page" id="page-strategies">
+  <div class="kicker" style="color:var(--navy);">Classroom Strategies</div>
+  <h1>All the "what can I do" guidance, in one place</h1>
+  <p class="lede">Every practical strategy on this site, gathered here so you don't have to hunt
+    for it. Each one still lives on its full page &mdash; click through for the complete guidance
+    and the research behind it.</p>
+
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <div class="tag" style="background:var(--deepred); color:var(--white);">Behaviour</div>
+      <h3>Boredom-driven disruption</h3>
+      <p>Build in scope to go deeper rather than just faster: open-ended extension questions,
+        choice in how a task is completed, or an early finish that leads into their own inquiry.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('behaviour','strategy-behaviour-boredom'); return false;">See full guidance &rarr;</a>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <div class="tag" style="background:var(--deepred); color:var(--white);">Behaviour</div>
+      <h3>Misdiagnosis risk</h3>
+      <p>Check whether the behaviour is strongly task-dependent before assuming ADHD or ODD, and
+        loop in the school counsellor alongside any formal assessment, not after it.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('behaviour','strategy-behaviour-misdiagnosis'); return false;">See full guidance &rarr;</a>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--deepred);">
+      <div class="tag" style="background:var(--deepred); color:var(--white);">Behaviour</div>
+      <h3>Defiance as a control response</h3>
+      <p>Offer small, genuine choices in how &mdash; not whether &mdash; work gets done: order of
+        tasks, format of a response, who they work with.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('behaviour','strategy-behaviour-defiance'); return false;">See full guidance &rarr;</a>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <div class="tag" style="background:var(--magenta); color:var(--white);">Social-Emotional</div>
+      <h3>Overexcitabilities</h3>
+      <p>Name the intensity for what it is rather than reading it as overreacting, and give it
+        somewhere to go &mdash; movement, a quieter space, open-ended questions, creative outlets,
+        or a safe way to name big feelings.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('sel','strategy-sel-overexcitabilities'); return false;">See full guidance &rarr;</a>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <div class="tag" style="background:var(--magenta); color:var(--white);">Social-Emotional</div>
+      <h3>Asynchronous development</h3>
+      <p>Pair advanced content in a student's strength areas with age-typical social-emotional
+        expectations, using flexible groupings that separate academic pace from social activities.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('sel','strategy-sel-asynchronous'); return false;">See full guidance &rarr;</a>
+    </div>
+    <div class="concept-card" style="border-top:5px solid var(--magenta);">
+      <div class="tag" style="background:var(--magenta); color:var(--white);">Social-Emotional</div>
+      <h3>Perfectionism</h3>
+      <p>Praise effort, strategy and process rather than outcome, model your own visible struggle,
+        and build in low-stakes chances to attempt, fail safely, and revise.</p>
+      <a class="crosslink" href="#" onclick="goToStrategy('sel','strategy-sel-perfectionism'); return false;">See full guidance &rarr;</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -1199,6 +1255,15 @@ function showPage(id){
   if(btn) btn.classList.add('active');
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+function goToStrategy(page, anchorId){
+  showPage(page);
+  setTimeout(function(){
+    const el = document.getElementById(anchorId);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+
 renderTasks();
 </script>
 </body>
