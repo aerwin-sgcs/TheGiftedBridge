@@ -181,6 +181,14 @@
   }
   .cta-button:hover{ text-decoration:none; transform:translateY(-2px); box-shadow:0 10px 22px rgba(27,110,117,0.45); }
 
+  /* ---------- Highlighted inline link (unmissable within body text) ---------- */
+  .link-highlight{
+    font-weight:800; color:var(--teal); background:var(--teal-light);
+    padding:1px 6px; border-radius:6px; text-decoration:underline; text-underline-offset:2px;
+    -webkit-box-decoration-break:clone; box-decoration-break:clone;
+  }
+  .link-highlight:hover{ background:var(--teal); color:var(--white); text-decoration:none; }
+
   /* ---------- Task bank ---------- */
   .filter-row{ display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px; }
   .filter-pill{
@@ -189,6 +197,9 @@
     font-family:inherit;
   }
   .filter-pill.active{ background:var(--navy); border-color:var(--navy); color:var(--white); }
+  /* Enrichment filter row: tint each Williams-process pill in its own colour */
+  #filterRow .filter-pill{ color:var(--pill); border-color:var(--pill); }
+  #filterRow .filter-pill.active{ background:var(--pill); border-color:var(--pill); color:var(--white); }
   .task-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
   @media (max-width:900px){ .task-grid{ grid-template-columns:1fr; } }
   .task-card{
@@ -397,9 +408,8 @@
   <div class="card">
     <p>In later work, Gagn&eacute; placed the DMGT inside a bigger picture &mdash; the
       <strong>Comprehensive Model of Talent Development (CMTD)</strong>, which he sums up as
-      &ldquo;from genes to talent&rdquo; (<a href="https://www.educacionfpydeportes.gob.es/revista-de-educacion/numeros-revista-educacion/numeros-anteriores/2015/368/368-1.html" target="_blank" rel="noopener">Gagn&eacute;, 2015</a>).
-      It answers a question the DMGT on its own leaves open: where do the natural abilities &mdash;
-      the gifts &mdash; actually come from?</p>
+      &ldquo;from genes to talent&rdquo; (Gagn&eacute;, 2015). It answers a question the DMGT on its
+      own leaves open: where do the natural abilities &mdash; the gifts &mdash; actually come from?</p>
     <figure style="margin:18px 0; text-align:center;">
       <img src="Gagnes%20CMTD.jpg" alt="Diagram of Gagn&eacute;'s Comprehensive Model of Talent Development (CMTD), tracing development from genetic and biological foundations, through a developmental process producing natural abilities (gifts), and on through a second developmental process shaped by catalysts that produces talents (competencies) in specific fields." style="max-width:100%; height:auto; border:1px solid var(--border); border-radius:10px;">
       <figcaption style="margin-top:8px; font-size:.85rem; color:var(--text-soft);">Gagn&eacute;'s Comprehensive Model of Talent Development (CMTD).</figcaption>
@@ -419,6 +429,10 @@
         environment matters from the very beginning, not just once a talent is obvious</li>
       <li>a gift that never meets the right developmental conditions may never surface as visible
         talent &mdash; which is exactly the underachievement gap this toolkit works to close</li>
+    </ul>
+    <p style="margin:14px 0 0;">What the research says:</p>
+    <ul style="margin:8px 0 0; padding-left:20px; color:#2b3648;">
+      <li><a href="https://www.educacionfpydeportes.gob.es/revista-de-educacion/numeros-revista-educacion/numeros-anteriores/2015/368/368-1.html" target="_blank" rel="noopener">From genes to talent: the DMGT/CMTD perspective &mdash; Gagn&eacute; (2015), <em>Revista de Educaci&oacute;n</em>, 368, 12&ndash;37 (free full text)</a></li>
     </ul>
   </div>
 
@@ -648,7 +662,7 @@
         with purpose, and the behaviour settles as a side effect of that, not a precondition
         for it.</p>
       <p style="margin-top:10px;">Not sure what a student's passion area is? The
-        <a href="https://aerwin-sgcs.github.io/2026_SPARK_PassionSurvey/" target="_blank" rel="noopener">SPARK Passion Survey</a>
+        <a class="link-highlight" href="https://aerwin-sgcs.github.io/2026_SPARK_PassionSurvey/" target="_blank" rel="noopener">SPARK Passion Survey &#8599;</a>
         is a quick tool that helps students identify their passion area.</p>
       <p style="margin-top:10px;"><a href="#passion-area-section">See how to build a Student Passion Area into your teaching &darr;</a></p>
     </div>
@@ -710,7 +724,7 @@
       <h3>Interest-based authentic learning</h3>
       <p>This is where passion identification does the most work. Once a student's passion area is
         known &mdash; the
-        <a href="https://aerwin-sgcs.github.io/2026_SPARK_PassionSurvey/" target="_blank" rel="noopener">SPARK Passion Survey</a>
+        <a class="link-highlight" href="https://aerwin-sgcs.github.io/2026_SPARK_PassionSurvey/" target="_blank" rel="noopener">SPARK Passion Survey &#8599;</a>
         is a quick way to surface it &mdash; connect it to real disciplinary work rather than a
         generic "choose your own topic" worksheet:</p>
       <ul>
@@ -1076,15 +1090,15 @@
   </div>
 
   <div class="filter-row" id="filterRow">
-    <button class="filter-pill active" onclick="filterTasks('all', this)">All</button>
-    <button class="filter-pill" onclick="filterTasks('fluency', this)">Fluency</button>
-    <button class="filter-pill" onclick="filterTasks('flexibility', this)">Flexibility</button>
-    <button class="filter-pill" onclick="filterTasks('originality', this)">Originality</button>
-    <button class="filter-pill" onclick="filterTasks('elaboration', this)">Elaboration</button>
-    <button class="filter-pill" onclick="filterTasks('risk-taking', this)">Risk-Taking</button>
-    <button class="filter-pill" onclick="filterTasks('complexity', this)">Complexity</button>
-    <button class="filter-pill" onclick="filterTasks('curiosity', this)">Curiosity</button>
-    <button class="filter-pill" onclick="filterTasks('imagination', this)">Imagination</button>
+    <button class="filter-pill active" style="--pill:var(--navy);" onclick="filterTasks('all', this)">All</button>
+    <button class="filter-pill" style="--pill:var(--royal);" onclick="filterTasks('fluency', this)">Fluency</button>
+    <button class="filter-pill" style="--pill:var(--olive);" onclick="filterTasks('flexibility', this)">Flexibility</button>
+    <button class="filter-pill" style="--pill:var(--magenta);" onclick="filterTasks('originality', this)">Originality</button>
+    <button class="filter-pill" style="--pill:var(--honey);" onclick="filterTasks('elaboration', this)">Elaboration</button>
+    <button class="filter-pill" style="--pill:var(--deepred);" onclick="filterTasks('risk-taking', this)">Risk-Taking</button>
+    <button class="filter-pill" style="--pill:var(--teal);" onclick="filterTasks('complexity', this)">Complexity</button>
+    <button class="filter-pill" style="--pill:#5B6472;" onclick="filterTasks('curiosity', this)">Curiosity</button>
+    <button class="filter-pill" style="--pill:#7A5FA6;" onclick="filterTasks('imagination', this)">Imagination</button>
   </div>
 
   <h2 id="tasks-maths" style="scroll-margin-top:170px;">Maths &mdash; Stage 4 &amp; 5</h2>
